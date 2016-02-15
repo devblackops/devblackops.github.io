@@ -43,19 +43,6 @@ permalink: /:title/
 markdown: kramdown
 highlighter: rouge
 
-asset_bundler:
-  compress:
-    js: true
-    css: true
-  base_path: /bundles/
-  server_url:
-  remove_bundled: false
-  dev: false
-  bundle_name: false
-  markup_templates:
-    js: "<script type='text/javascript' src='{{url}}'></script>\n"
-    css: "<link rel='stylesheet' type='text/css' href='{{url}}' />\n"
-
 kramdown:
   # use Github Flavored Markdown
   input: GFM
