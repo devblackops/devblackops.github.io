@@ -1,7 +1,7 @@
 # Site settings
 title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
-url: 'http://devblackops.github.io'
+url: 'http://devblackops.github.io/'
 baseurl: 'http://devblackops.github.io'
 google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
