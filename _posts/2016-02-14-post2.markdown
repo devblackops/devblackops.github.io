@@ -1,0 +1,10 @@
+---
+title:  "Post 2"
+date:   2016-02-14
+categories:
+featured-image:
+excerpt: "this is post 2 excerpt"
+comments: true
+tags: [general]
+---
+This is the content for post 2

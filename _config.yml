@@ -1,0 +1,52 @@
+# Site settings
+title: DevBlackOps
+description: Thoughts about DevOps and automation from a Windows guy
+url: ''
+baseurl: '/'
+google_analytics: 'UA-54364644-2'
+disqus_shortname: devblackops
+
+#nav_background: images/pdx_lg.jpg
+
+author:
+  name: 'Brandon olin'
+  email: brandon@devblackops.io
+  twitter_username: devblackops
+  #facebook_username: joshgerdes
+  github_username:  devblackops
+  linkedin_username:  brandonolin
+
+pages_list:
+  Home: '/'
+  About: '/about'
+  Archives: '/archives'
+  Projects: '/projects'
+
+# Project config
+portfolio_dir: "_data"
+related_project_keys: ["category", "technology"]
+related_min_common: 0.7
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']

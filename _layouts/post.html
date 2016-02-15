@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="post-container post-container--single">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date: "%-d %b %Y" }}" class="post-meta__date date">Dreamed up on <span>{{ page.date | date: "%-d %b %Y" }}</span></time>
+       <!-- &#8226; -->
+       <span class="post-meta__tags">concerning {% for tag in page.tags %}
+         <a href="{{ site.baseurl }}tags/#{{ tag }}">{{ tag }}</a> {% endfor %}
+       </span>
+    </div>
+  </header>
+
+  <section class="post">
+    {{ content }}
+  </section>
+
+  <!-- Social icons -->
+  {% if page.share != false %}{% include social-share.html %}{% endif %}
+
+  <!-- Disqus comments -->
+  {% if page.comments != false and site.disqus_shortname %}
+    <section id="disqus_thread" class="disqus_wrapper"></section>
+    {% include disqus.html %}
+  {% endif %}
+</article>
