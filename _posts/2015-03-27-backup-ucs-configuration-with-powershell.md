@@ -1,7 +1,7 @@
 ---
 title:  Backup UCS configuration with PowerShell
 date:   2015-03-27
-featured-image: posts/idea-for-vmware-provisioning-with-dsc/vmware_plus_powershell.png
+featured-image: posts/backup-ucs-configuration-with-powershell/ucs_servers.jpg
 excerpt: "If you're in a situation where you need to backup your UCS configuration with PowerShell then continue reading. Below you will see how you can schedule a PowerShell script to backup all the UCS Manager configurations in your environment and save them to a SMB share."
 comments: true
 categories: [DevOps, DSC, PowerShell, VMware]
