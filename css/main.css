@@ -1,7 +1,15 @@
 @import url(uno.css);
-@import url(monokai.css);
+@import url(syntax.css);
 
 /* Modifications */
+body {
+  /*background-color: ghostwhite;*/
+}
+
+blockquote {
+  background-color: #f6f3f3;
+  border-left: 4px solid #56709c;
+}
 
 pre.highlight,
 .highlight pre {
@@ -70,6 +78,7 @@ pre.highlight code,
 
 .post-image-thumbnail {
   float: left;
+  margin-bottom: 1em;
   margin-right: 20px;
   max-height: 150px;
 }
@@ -82,4 +91,52 @@ pre.highlight code,
 
 .disqus_wrapper {
   margin-top: 20px;
+}
+
+/** Large feature header image*/
+.image-wrap {
+	position: relative;
+	margin-bottom: 2em;
+	@include clearfix;
+	&:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 8%;
+		width: 0;
+		height: 0;
+		border: 10px solid transparent;
+		border-bottom-color: $bodycolor;
+		@media #{$small} {
+			left: 25%;
+		}
+		@media #{$large} {
+			border-width: 20px;
+		}
+		@media #{$x-large} {
+			left: 33.333333333%;
+		}
+	}
+	img {
+		width: 100%;
+		height: auto;
+		-ms-interpolation-mode: bicubic;
+	}
+	.headline-wrap {
+		position: absolute;
+		bottom: 25px;
+		@include prefix(12,1);
+		@media #{$small} {
+			left: 25%;
+			margin-left: 0;
+		}
+		@media #{$x-large} {
+			@include prefix(12,1);
+		}
+		h1, h2 {
+			color: $white;
+			@include text-shadow(0 1px 2px rgba(0,0,0,.25));
+		}
+	}
 }

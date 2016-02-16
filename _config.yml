@@ -3,6 +3,8 @@ title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
 url: 'http://devblackops.github.io/'
 baseurl: 'http://devblackops.github.io/'
+url: ''
+baseurl: '/'
 #enforce_ssl: devblackops.github.io
 google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
@@ -38,7 +40,7 @@ defaults:
 
 # Build settings
 destination: _site
-paginate: 10
+paginate: 5
 permalink: /:title/
 markdown: kramdown
 highlighter: rouge

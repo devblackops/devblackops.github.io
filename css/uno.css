@@ -1112,8 +1112,14 @@ pre {
 .footer {
 	display: block;
 	padding: 2em 0 0 0;
-	border-top: 2px solid #dddddd;
-	/*font-size: .7em;*/
+
+  /*width: 50%;*/
+  margin: 20px auto;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+	/*border-top: 2px solid #dddddd;*/
+
+	font-size: .7em;
 	color: #b3b3b3; }
 
 .footer__copyright {
@@ -1147,7 +1153,8 @@ hr {
 	padding: 60px 0; }
 
 .post-meta {
-	margin: 0 0 .4em 0;
+  clear: both;
+	margin: 1em 0 1em 0;
 	color: #c7c7c7; }
 
 .post-meta__date {
@@ -1215,7 +1222,8 @@ hr {
 	width: 100%;
 	max-width: none;
 	height: 100%;
-	background: url(../images/background-cover.jpg) top left no-repeat #00026D;
+	/*background: url(../images/background-cover.jpg) top left no-repeat #00026D;*/
+  background: top left no-repeat #00026D;
 	background-size: cover; }
 
 .panel-cover--collapsed {
@@ -1243,12 +1251,13 @@ hr {
 }
 
 .panel-cover__divider {
-	width: 50%;
+	/*width: 50%;*/
 	margin: 20px auto;
 	border-top: 1px solid rgba(255, 255, 255, 0.14); }
 
 .panel-cover__divider--secondary {
-	width: 15%; }
+	/*width: 15%;*/
+}
 
 .panel-main {
 	display: table;

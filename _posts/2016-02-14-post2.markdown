@@ -8,3 +8,7 @@ comments: true
 tags: [general]
 ---
 This is the content for post 2
+
+![My helpful screenshot](/images/pdx_373.png)
+
+{% gist devblackops/b4b07ef950f177ce14c4 %}
