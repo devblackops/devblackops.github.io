@@ -1,9 +1,9 @@
 ---
 title:  "Import / Export PowerShell Credentials Module"
 date:   2015-03-18
-categories: [PowerShell]
 featured-image: powershell-logo.png
 comments: true
+categories: [PowerShell]
 tags: [Credentials, PowerShell]
 ---
 
@@ -11,10 +11,10 @@ Here is a handle little PS module I picked up from [halr9000.com](halr9000.com) 
 
 Usage example:
 
-``` powershell
+{% highlight powershell linenos %}
 Import-Module Credentials
 $creds = Get-Credential
 
 Export-PSCredential -Credential $creds -Path 'c:\temp\creds.xml'
 $newCreds = Import-PScredential -Path 'C:\Temp\creds.xml'
-```
+{% endhighlight %}

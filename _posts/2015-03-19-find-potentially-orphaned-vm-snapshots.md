@@ -1,16 +1,16 @@
 ---
 title:  Find Potentially Orphaned VM Snapshots
 date:   2015-03-19
-categories: [PowerShell, VMware]
 featured-image: posts/find-potentially-orphaned-vm-snapshots/ghostbusters.gif
 excerpt: "Here is a quick function to find potentially orphaned VMs snapshots. This basically looks for VMs with active snapshots using Get-Snapshot and compares that to a list of VMs where the disk file name matches *-*000*.vmdk."
 comments: true
+categories: [PowerShell, VMware]
 tags: [PowerShell, Snapshots, VMware]
 ---
 
 Here is a quick function to find potentially orphaned VMs snapshots. This basically looks for VMs with active snapshots using Get-Snapshot and compares that to a list of VMs where the disk file name matches *-*000*.vmdk. I've seen problems (particularly with backup software) leaving these snapshot disks around after a VM backup terminates abnormally. This could lead to unplanned storage utilization on your array and potentially filling up the datastore(s). That's bad
 
-``` powershell
+{% highlight powershell linenos %}
 function Find-VMsWithOrphanedSnapshots {
   <#
     .Synopsis
@@ -88,4 +88,4 @@ function Find-VMsWithOrphanedSnapshots {
 
   return $result
 }
-```
+{% endhighlight %}
