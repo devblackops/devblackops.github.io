@@ -13,13 +13,15 @@ layout: default
 
         <!-- Featured image -->
         {% if post.featured-image %}
-          <img class="post-image-thumbnail" src=
-            {% if page.featured-image contains 'http' %}
-              "{{ page.featured-image }}"
-            {% else %}
-              "{{ site.url }}/images/{{ post.featured-image }}"
-            {% endif %}
-          alt="{{ page.title }} feature image">
+          <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}" title="{{ post.title }}">
+            <img class="post-image-thumbnail" src=
+              {% if page.featured-image contains 'http' %}
+                "{{ page.featured-image }}"
+              {% else %}
+                "{{ site.url }}/images/{{ post.featured-image }}"
+              {% endif %}
+            alt="{{ page.title }} feature image">
+          </a>
         {% endif %}
 
         <!-- Excerpt -->
