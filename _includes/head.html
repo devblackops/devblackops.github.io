@@ -16,7 +16,11 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@devblackops">
   <meta name="twitter:title" content="{{ site.title }}">
-  <meta name="twitter:description" content="{{ site.description }}">
+  {% if page.title %}
+    <meta name="twitter:description" content="{{ page.title }}">
+  {% else %}
+    <meta name="twitter:description" content="{{ site.description }}">
+  {% endif %}
   {% if page.featured-image %}
     <meta name="twitter:image" content="{{ site.baseurl }}/images/{{ page.featured-image }}"
   {% endif %}
