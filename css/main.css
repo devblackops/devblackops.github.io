@@ -85,6 +85,14 @@ pre.highlight code,
   max-width: 400px;
 }
 
+.post-featured-image {
+  float: left;
+  margin-bottom: 1em;
+  margin-right: 20px;
+  max-height: 200px;
+  max-width: 400px;
+}
+
 p>img {
   display: block;
   margin-left: auto;

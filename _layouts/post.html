@@ -4,8 +4,8 @@ layout: default
 <article class="post-container post-container--single">
 
   {% if page.featured-image %}
-    <div class="image-wrap">      
-      <img class="post-image-thumbnail" src=
+    <div class="image-wrap">
+      <img class="post-featured-image" src=
         {% if page.featured-image contains 'http' %}
           "{{ page.featured-image }}"
         {% else %}

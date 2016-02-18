@@ -1100,13 +1100,15 @@ pre {
 .content-wrapper {
 	z-index: 800;
 	/*width: 60%;*/
-	/*max-width: 800px;*/
+	max-width: 1200px;
 	/*margin-left: 40%; */
-  margin-left: 400px;
+  /*margin-left: 400px;*/
+  margin-left: 350px;
 }
 
 .content-wrapper__inner {
-	margin: 0 10%;
+	/*margin: 0 10%;*/
+  margin: 0 50px;
 	padding: 50px 0; }
 
 .footer {
@@ -1222,13 +1224,16 @@ hr {
 	width: 100%;
 	max-width: none;
 	height: 100%;
-	/*background: url(../images/background-cover.jpg) top left no-repeat #00026D;*/
-  background: top left no-repeat #00026D;
-	background-size: cover; }
+	/*background: url(../images/pioneer-square.jpg) top left no-repeat #00026D;*/
+  background-color: #00026D
+	/*background-size: cover;*/
+}
 
 .panel-cover--collapsed {
 	width: 40%;
-	max-width: 400px; }
+	/*max-width: 400px;*/
+  max-width: 350px;
+}
 
 .panel-cover--overlay {
 	display: block;
@@ -1266,14 +1271,18 @@ hr {
 
 .no-js .panel-main {
 	width: 40%;
-	max-width: 400px; }
+	/*max-width: 400px;*/
+  max-width: 350px;
+}
 
 .panel-main__inner {
 	display: table-cell;
 	vertical-align: middle;
 	position: relative;
 	z-index: 800;
-	padding: 0 60px; }
+	/*padding: 0 60px;*/
+  padding: 0px;
+}
 
 .panel-main__content {
   margin-left: -20px;
@@ -1578,7 +1587,10 @@ input[type="tel"] {
 
 @media all and (min-width: 1300px) {
 	.content-wrapper {
-		margin-left: 400px; } }
+		/*margin-left: 400px;*/
+    margin-left: 350px;
+  }
+}
 @media all and (max-width: 1100px) {
 	.panel-cover__logo {
 		width: 70px; }
@@ -1611,7 +1623,9 @@ input[type="tel"] {
 
 	.panel-main__inner {
 		display: table-cell;
-		padding: 60px 10%; }
+		padding: 60px 10%;
+
+  }
 
 	.panel-cover__description {
 		display: block;
