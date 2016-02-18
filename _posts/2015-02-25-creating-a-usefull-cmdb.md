@@ -1,5 +1,5 @@
 ---
-title:  "Creating a usefull CMDB"
+title:  "Creating a useful CMDB"
 date:   2015-02-25
 categories: [CMDB]
 featured-image: posts/creating-a-usefull-cmdb/road.jpg
