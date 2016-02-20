@@ -1,5 +1,5 @@
 ---
-title:  Storing PowerShell Module Default Values in Your User Profile
+title:  PowerShell Module for ClickStudio’s PasswordState
 date:   2015-08-21
 featured-image: posts/password_1.jpg
 excerpt: "Most organizations will have some sort of enterprise or departmental password vault. If they don't, they seriously need to think about implementing one. Below you'll see a PowerShell module I've written to interface with ClickStudio's PasswordState application via their REST API."
