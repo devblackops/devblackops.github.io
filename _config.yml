@@ -6,7 +6,7 @@ baseurl: 'https://devblackops.github.io/'
 #url: ''
 #baseurl: '/'
 #enforce_ssl: devblackops.github.io
-#google_analytics: 'UA-54364644-2'
+google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
 
 #nav_background: images/pdx_lg.jpg
