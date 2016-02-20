@@ -9,6 +9,10 @@ body {
 blockquote {
   background-color: #f6f3f3;
   border-left: 4px solid #56709c;
+  min-height: 90px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1em;
 }
 
 pre.highlight,
@@ -20,6 +24,10 @@ pre.highlight,
 pre.highlight code,
 .highlight pre code {
   white-space: pre-wrap;
+}
+
+.lineno {
+  color: gray;
 }
 
 .btn,
@@ -87,10 +95,15 @@ pre.highlight code,
 
 .post-featured-image {
   float: left;
+  margin-top: 12px;
   margin-bottom: 1em;
   margin-right: 20px;
   max-height: 200px;
   max-width: 400px;
+}
+
+.quote-summary blockquote {
+  margin-left: 190px;
 }
 
 p>img {
@@ -155,4 +168,61 @@ p>img {
 			@include text-shadow(0 1px 2px rgba(0,0,0,.25));
 		}
 	}
+}
+
+/* General style */
+.grid-gallery ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.grid-gallery figure {
+	margin: 0;
+}
+
+.grid-gallery figure img {
+	display: block;
+	width: 100%;
+}
+
+.grid-gallery figcaption h3 {
+	margin: 0;
+	padding: 0 0 0.5em;
+}
+
+.grid-gallery figcaption p {
+	margin: 0;
+}
+
+/* Grid style */
+.grid-wrap {
+	max-width: 69em;
+	margin: 0 auto;
+	padding: 0 1em 1.875em;
+}
+
+.grid {
+	margin: 0 auto;
+}
+
+.grid li {
+	width: 25%;
+	float: left;
+	cursor: pointer;
+}
+
+.grid figure {
+	padding: 15px;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.grid li:hover figure {
+	opacity: 0.7;
+}
+
+.grid figcaption {
+	background: #e4e4e4;
+	padding: 25px;
 }

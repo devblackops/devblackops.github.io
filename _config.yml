@@ -3,8 +3,10 @@ title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
 url: 'https://devblackops.github.io/'
 baseurl: 'https://devblackops.github.io/'
+#url: ''
+#baseurl: '/'
 #enforce_ssl: devblackops.github.io
-google_analytics: 'UA-54364644-2'
+#google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
 
 #nav_background: images/pdx_lg.jpg
@@ -23,11 +25,6 @@ pages_list:
   Archives: '/archives'
   Projects: '/projects'
 
-# Project config
-portfolio_dir: "_data"
-related_project_keys: ["category", "technology"]
-related_min_common: 0.7
-
 defaults:
   -
     scope:
@@ -35,6 +32,17 @@ defaults:
       type: 'posts'
     values:
         layout: 'post'
+  -
+    scope:
+      path: ''
+      type: 'projects'
+    values:
+      layout: 'project-summary'
+
+collections:
+  projects:
+    output: true
+
 
 # Build settings
 destination: _site

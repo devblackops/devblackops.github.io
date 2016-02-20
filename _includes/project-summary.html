@@ -1,0 +1,26 @@
+ <section class="grid-wrap">
+	<ul class="grid">
+		<li class="grid-sizer"></li>
+		{% for project in site.projects %}
+  		<li>
+  			<figure>
+          <a href="{{ site.baseurl }}{{ project.url | remove_first: '/' }}" title="{{ project.title }}">
+            {% if project.thumbnail %}
+              <img class="post-image-thumbnail" src=
+                {% if project.thumbnail contains 'http:' %}
+                  "{{ project.thumbnail }}"
+                {% else %}
+                  "{{ site.url }}/images/{{ project.thumbnail }}"
+                {% endif %}
+                alt="{{ project.title }} project image">
+            {% endif %}
+    				<figcaption>
+    					<h3>{{ project.title }}</h3>
+    					<p>{{ project.short-description }}</p>
+    				</figcaption>
+          </a>
+  			</figure>
+  		</li>
+		{% endfor %}
+	</ul>
+</section>

@@ -1,0 +1,15 @@
+<a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}" title="{{ post.title }}">
+  <img class="post-image-thumbnail" src="{{ site.url }}/images/quote2.png"
+  alt="{{ page.title }} feature image">
+</a>
+<div class="quote-summary">
+  <p class="excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+</div>
+<div class="post-meta">
+  <time datetime="{{ page.date | date: "%-d %b %Y" }}" class="post-meta__date date">
+    Dreamed up on <span>{{ post.date | date: "%-d %b %Y" }}</span>
+  </time>
+   <span class="post-meta__tags">concerning {% for tag in post.tags %}
+     <a href="{{ site.baseurl }}tags/#{{ tag }}">{{ tag }}</a> {% endfor %}
+   </span>
+</div>
