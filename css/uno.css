@@ -1224,9 +1224,13 @@ hr {
 	width: 100%;
 	max-width: none;
 	height: 100%;
+  /*background-color: #00026D*/
+  background-color: #101010;
+  /*background-image: url(../images/pioneer-square.jpg);*/
+  /*background-position: center bottom;
+  background-repeat: no-repeat;*/
 	/*background: url(../images/pioneer-square.jpg) top left no-repeat #00026D;*/
-  background-color: #00026D
-	/*background-size: cover;*/
+  /*background-size: cover;*/
 }
 
 .panel-cover--collapsed {
@@ -1245,7 +1249,8 @@ hr {
 	left: 0;
 	background-color: rgba(68, 68, 68, 0.6);
 	background-image: -webkit-linear-gradient(-410deg, rgba(68, 68, 68, 0.6) 20%, rgba(0, 0, 0, 0.9));
-	background-image: linear-gradient(140deg,rgba(68, 68, 68, 0.6) 20%, rgba(0, 0, 0, 0.9)); }
+	background-image: linear-gradient(140deg,rgba(68, 68, 68, 0.6) 20%, rgba(0, 0, 0, 0.9));
+}
 
 .panel-cover__logo {
 	margin-bottom: .2em; }
