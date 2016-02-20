@@ -23,9 +23,9 @@ author:
 
 pages_list:
   Home: '/'
-  About: '/about'
-  Archives: '/archives'
-  Projects: '/projects'
+  About: '/about/'
+  Archives: '/archives/'
+  Projects: '/projects/'
 
 defaults:
   -

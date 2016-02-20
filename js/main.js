@@ -6,7 +6,6 @@ var host = "devblackops.io";
 if ((host == window.location.host) && (window.location.protocol != "https:"))
     window.location.protocol = "https";
 
-
 $(document).ready(function () {
   // $('a.blog-button').click(function (e) {
   //   if ($('.panel-cover').hasClass('panel-cover--collapsed')) return
