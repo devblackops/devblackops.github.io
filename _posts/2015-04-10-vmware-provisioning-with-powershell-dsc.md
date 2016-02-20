@@ -1,7 +1,7 @@
 ---
 title:  VMware Provisioning with PowerShell DSC
 date:   2015-04-10
-#featured-image: posts/vmware-provisioning-with-powershell-dsc/vmware_plus_powershell.png
+featured-image: posts/vmware-provisioning-with-powershell-dsc/vmware_plus_powershell.png
 excerpt: I've written about the idea of [VMware Provisioning with PowerShell DSC before and now I want to show how you can accomplish this using a working example. Below is an admittedly basic but functional custom DSC module to deploy VMs using VMware's PowerCLI.
 comments: true
 categories: [DevOps, DSC, PowerShell, VMware]
