@@ -115,7 +115,7 @@ pre.highlight code,
 
 .post-image-thumbnail {
   float: left;
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
   margin-right: 20px;
   max-height: 150px;
   max-width: 400px;
