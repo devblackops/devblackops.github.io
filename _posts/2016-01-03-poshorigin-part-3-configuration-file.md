@@ -18,7 +18,7 @@ This is part 3 of a 9 part series about POSHOrigin, a PowerShell module that aim
 
 * [Part 1 - Summary]({% post_url 2016-01-03-poshorigin-part-1-summary %})
 * [Part 2 - Installation]({% post_url 2016-01-03-poshorigin-part-2-installation %})
- [Part 3 - Configuration File
+* Part 3 - Configuration File
 * [Part 4 - Defaults File]({% post_url 2016-01-03-poshorigin-part-4-defaults-file %})
 * [Part 5 - Load, Test, and Execute Configurations]({% post_url 2016-01-03-poshorigin-part-5-load-test-execute-configurations %})
 * [Part 6 - Sharing Configurations]({% post_url 2016-01-03-poshorigin-part-6-sharing-configurations %})

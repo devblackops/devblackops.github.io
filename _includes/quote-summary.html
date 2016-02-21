@@ -1,7 +1,8 @@
-<a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}" title="{{ post.title }}">
-  <img class="quote-image" src="{{ site.url }}/images/quote2.png"
-  alt="{{ page.title }} feature image">
-</a>
+<img class="quote-image" src="{{ site.url }}/images/quote2.png"
+alt="{{ page.title }} feature image">
+<!-- <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}" title="{{ post.title }}">
+
+</a> -->
 <div class="quote-summary">
   <p class="excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
 </div>
