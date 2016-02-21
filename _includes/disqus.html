@@ -1,5 +1,36 @@
 {% if site.disqus_shortname %}
+
+
+<aside id="comments" class="disqus">
+  <hr>
+  <div class="text-center">
+    <h3><i class="icon icon-comments" style="font-size: 100%;"></i> Comments</h3>
+    <a href="#" class="show-disqus disqus-hidden txt-center">Leave a comment</a>
+  </div>
+
   <div id="disqus_thread"></div>
+
+  <script>
+    var disqus_config = function () {
+      this.page.url = '{{ site.url }}{{ post.url }}';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = '{{ page.id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    // (function() {
+    //   var d = document, s = d.createElement('script');
+    //   s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    //   s.setAttribute('data-timestamp', +new Date());
+    //   (d.head || d.body).appendChild(s);
+    // })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</aside>
+
+
+
+
+
+
+  <!-- <div id="disqus_thread"></div>
     <script>
     /**
     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -16,5 +47,5 @@
     (d.head || d.body).appendChild(s);
     })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript> -->
 {% endif %}
