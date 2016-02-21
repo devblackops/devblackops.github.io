@@ -27,6 +27,7 @@ pages_list:
   Archives: '/archives/'
   Projects: '/projects/'
 
+# Default layouts
 defaults:
   -
     scope:
@@ -44,7 +45,6 @@ defaults:
 collections:
   projects:
     output: true
-
 
 # Build settings
 destination: _site
