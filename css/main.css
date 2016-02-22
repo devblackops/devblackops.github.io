@@ -172,6 +172,13 @@ pre.highlight code,
     font-size: .9em;
   }
 
+  .panel-main__content {
+    margin-top: -20px;
+  }
+  .panel-cover.panel-cover--collapsed .panel-cover__description {
+    display: block;
+  }
+
   /*.post-header .post-title {
     font-size: 1.5em;
     text-align: center;
