@@ -15,4 +15,4 @@ With that in mind, I created this site to share ideas and solutions to problems 
 
 >
 “All right, they’re on our left, they’re on our right, they’re in front of us, they’re behind us…they can’t get away this time”
-– General Lewis B. “Chesty” Puller, USMC
+<br/><br/>– General Lewis B. “Chesty” Puller, USMC
