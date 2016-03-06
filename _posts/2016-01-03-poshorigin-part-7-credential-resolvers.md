@@ -44,6 +44,26 @@ resource 'vsphere:vm' 'VM01' @{
 }
 {% endhighlight %}
 
+### ProtectedData Example
+
+{% highlight powershell linenos %}
+resource 'vsphere:vm' 'VM01' @{
+    ensure = 'present'
+    description = 'Test VM'
+    ###
+    # Other options omitted for brevity
+    ###          
+    vcenterCredentials = Get-POSHOriginSecret 'protecteddata' @{
+        path = '.\my_vc_creds.xml'
+        certificate = '39E79A87089CBE26C3B1D36A7D20A96398D07CF9'        
+    }
+    guestCredentials = Get-POSHOriginSecret 'protecteddata' @{
+        path = '.\my_guest_creds.xml'
+        password = 'K33p1T53cr3TK33p1T5@F3'
+    }
+}
+{% endhighlight %}
+
 ### PSCredential Example
 
 {% highlight powershell linenos %}
