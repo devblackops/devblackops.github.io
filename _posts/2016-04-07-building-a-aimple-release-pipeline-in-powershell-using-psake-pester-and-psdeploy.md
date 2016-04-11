@@ -1,0 +1,277 @@
+---
+title:  Building a Simple Release Pipeline in PowerShell Using psake, Pester, and PSDeploy
+date:   2016-04-06
+draft: true
+featured-image: pipeline.gif
+excerpt: "This post will outline an extremely simple yet effective Release Pipeline model you can use in your PowerShell projects. This process is
+  essentialy a distilation of the whitepaper written my Steven Muraski from Chef and
+Michael Greene from Microsoft using PowerShell based tools."
+comments: true
+categories: [DevOps]
+tags: [DevOps, Continuous Integration, Continous Delivery, Release Pipeline]
+---
+
+This post will outline an extremely simple yet effective **Release Pipeline** model you can use in your PowerShell projects. This process is
+essentialy a distilation of the whitepaper written my [Steven Muraski](http://stevenmurawski.com/) from Chef and
+[Michael Greene](https://github.com/mgreenegit) from Microsoft using PowerShell based tools. I highly recommend you read the whitepaper which you can
+grab at [http://aka.ms/thereleasepipelinemodel](http://aka.ms/thereleasepipelinemodel). The whitepaper gives an excellent overview of the Release
+Pipeline Model **(Source, Build, Test, and Release)** and how this simple and easy to understand model can be applied to IT Operations.
+
+> **STOP!!!**  
+> GO READ THE WHITEPAPER BEFORE CONTINUING!!!  
+> [CLICK ME](http://aka.ms/thereleasepipelinemodel)
+
+Now that you've digested that, here is a quick overview of the various components.
+
+* TOC
+{:toc}
+
+## The Release Pipeline
+
+### Source
+All configuration for a given system and any scripts running in your environment will be stored in Source Control. This is the single source of truth
+for your environment and ALL configuration, policy, tests, and deployment scripts are stored here as versionable documents. All artifacts will be
+produced from documents you keep under Source Control.
+
+### Build
+A build system is an orchestration service that is is connected to the source control platform so that action can be triggered when files change in
+the source repository. The build server will be responsible for running the build script defined in source control. This build script will perform all
+the necessary tasks the must occur before a change can be released into production.
+
+### Test
+Once changes are submitted to source control, the build system will orchestrate the process of running various tests on the code to check for style
+(linting) and static code analysis (PowerShell Scripe Analyzer). Unit, Integration, and Acceptence tests can be performed with tools like Pester.
+
+### Release
+Once the code or configuration changes have passed all tests defined in the Test state,
+TODO - Add more about release
+
+## Tools we can use with this model
+  * **Source -> git** - An open source distributed version control system
+  * **Build -> psake** - A build automation tool written in PowerShell
+  * **Test -> Pester** - A BDD based test runner for PowerShell
+  * **Test -> PSScriptAnalyzer** - A code analysis and linting tool for PowerShell
+  * **Release -> PSDeploy** - A PowerShell module to automate deployments using a simple DSL
+  
+## Installing the tools
+
+Run the following commands to install the various tools we're going to use. These will either come from [Chocolatey](https://chocolatey.org/) or the 
+[PowerShell Gallery](https://www.powershellgallery.com/).
+
+### Chocolatey
+{% highlight powershell %}
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+{% endhighlight %}
+
+### git and posh-git
+{% highlight powershell %}
+choco install git.install
+choco install poshgit
+{% endhighlight %}
+
+### psake
+{% highlight powershell %}
+Install-Module -Name psake
+{% endhighlight %}
+
+### Pester
+{% highlight powershell %}
+Install-Module -Name Pester
+{% endhighlight %}
+
+### Script Analyzer
+{% highlight powershell %}
+Install-Module -Name PSScriptAnalyzer
+{% endhighlight %}
+
+### PSDeploy
+{% highlight powershell %}
+Install-Module -Name PSDeploy
+{% endhighlight %}
+
+## Creating our Scripts
+Let's say we have a PowerShell script in use in our production environment. It doesn't really matter what the script does, but for this example, let's
+say our script is called ServerDiscovery.ps1. This script will search Active Directory for all server computer objects and email us a fancy report.
+We want to start using the Release Pipeline model for source control, development, testing, and ongoing releases of the script.
+
+### Create a git repository
+First things first. We need to get this script into source control. Let's create a new folder that will be our source control **repository** for the
+script and all associated tests and deployment configuration. This repository is the single source of truth about the script, how it is tested, how 
+it is deployed, and any related documentation.
+
+1. Create a new folder called ```c:\ServerDiscovery```
+2. Create a new file in the folder called ```ServerDiscovery.ps1```
+
+This is what our folder looks like at this point.
+![](/images/placeholder.gif)
+
+Now that we have git and posh-git installed, let make this folder a repository.
+{% highlight powershell %}
+cd C:\ServerDiscovery
+git init
+{% endhighlight %}
+
+Notice that our prompt has changed. This is posh-git showing us that this folder is now a git repository and we already have something to check in.
+![](/images/placeholder.gif)
+
+### Create a Pester test script
+Create a file called ```ServerDiscovery.tests.ps1``` in the repository and save it with the following contents.
+
+#### ServerDiscovery.tests.ps1
+{% highlight powershell %}
+Describe 'Unit Tests' {
+    Context 'Parameter Validation' {
+        it 'Enforces mandatory parameters' {
+            $true | should be $true 
+        }
+        it 'Validates email addresses' {
+            $true | should be $true 
+        }
+    }
+}
+{% endhighlight %}
+This is a pretty weak test script but that is OK. I'm just describing the process flow. Your set of tests will be much more comprehensive. You can
+read more about Pester [here](https://github.com/pester/Pester).
+
+### Create a Build Script
+We want our entry point into calling various parts of the pipeline to be simple. To do this, we'll create a small script called ```build.ps1```. Copy
+the following contents to the script.
+
+#### build.ps1
+{% highlight powershell %}
+[cmdletbinding()]
+param(
+    [string[]]$Task = 'default'
+)
+
+Import-Module psake
+Invoke-psake -buildFile "$PSScriptRoot\psakeBuild.ps1" -taskList $Task
+{% endhighlight %}
+
+This build script is only meant as an entry point into calling ```psakeBuild.ps1``` with an optional task to run.
+
+### Create a psake Build Script
+
+The psake script ```psakeBuild.ps1``` is where all the logic for the various tasks over the lifecyle of your script will be defined. Copy the 
+following contents to the script. There is a simple DSL for psake scripts which you can find more about [here](https://github.com/psake/psake).
+
+#### psakeBuild.ps1
+{% highlight powershell %}
+task default -depends Analyze, Test
+
+task Analyze {
+    $saResults = Invoke-ScriptAnalyzer -Path $PSScriptRoot -Severity @('Error', 'Warning') -Recurse -Verbose:$false
+    if ($saResults) {
+        $saResults | Format-Table  
+        Write-Error -Message 'One or more Script Analyzer errors/warnings where found. Build cannot continue!'        
+    } 
+}
+
+task Test {
+    $testResults = Invoke-Pester -Path $PSScriptRoot -PassThru
+    if ($testResults.FailedCount -gt 0) {
+        $testResults | Format-Table
+        Write-Error -Message 'One or more Pester tests failed. Build cannot continue!'
+    }
+}
+
+task Deploy -depends Analyze, Test {
+    Invoke-PSDeployment -Path '.\ServerDiscovery.psdeploy.ps1' -Force -Verbose:$VerbosePreference
+}
+{% endhighlight %}
+
+You'll notice we have defined tasks inside psakeBuild.ps1
+
+* **default** - The default psake task. In this case the task depends on the ```Analyze``` and ```Test``` tasks to be performed first
+* **Analyze** - Run PowerShell Script Analyzer against ```ServerDiscovery.ps1```
+* **Test** - Run all Pester tests in the repository
+* **Deploy** - Invoke our PSDeploy script. You'll notice that this task has a depenency on the ```Analyze``` and ```Test``` tasks. This means that 
+our ```Deploy``` tasks can never be run without the the tasks's dependencies completing successfully first. **This ensures that we are only deploying
+code that has been tested first**.
+
+You can get as detailed as you need to with your psake tasks. You will likely create many more that map to the various operations regarding the 
+lifecycle of the repository. **This in important as the primary way you interact with the repository going forward is to call ```build.ps1``` with
+the appropriate task name you would like to perform**.
+
+### Create a PSDeploy script
+Your PSDeploy script is the way you distribute your script to the outside would once it has passed all relevant testing initiated from your psake
+script. Create a new script called ```ServerDiscovery.psdeploy.ps1``` and copy the following contents into it. PSDeploy scripts use a simple DSL
+which you can find more about [here](https://github.com/RamblingCookieMonster/PSDeploy)
+
+#### ServerDiscovery.psdeploy.ps1
+{% highlight powershell %}
+Deploy 'Deploy ServerDiscovery script' {
+    By Filesystem {
+        FromSource '.\ServerDiscovery.ps1'
+        To 'C:\temp'
+        Tagged Prod
+    }
+}
+{% endhighlight %}
+
+### Create a README.md
+Why create a ```README.md``` file? Your repository is starting to accumulate a handfull of scripts and your colleges or future self will thank you
+that you have taken the time to document what the purpose of this repository is and how to interact with it. The ```README.md``` is the perfect place
+for that type of information.
+
+#### README.md
+{% highlight markdown %}
+## About
+Author: Brandon Olin [[devblackops.io]()]
+
+## Overview
+An example of using the Release Pipeline Model with PowerShell-based tools. This repository hosts the ```ServerDiscovery.ps1```  script which will
+search ActiveDirectory for all server computer objects and email the result to the specifed email address(s). This repository also includes 
+associated tests and build tasks for day to day operations and deployment of the script.
+
+## Usage
+A ```psake``` script has been created to manage the various operations related to testing and deployment of ```ServerDiscovery.ps1```
+
+#### Build Operations  
+* Test the script via Pester and Script Analyzer  
+    ```.\build.ps1```
+* Test the script with Pester only  
+    ```.\build.ps1 -Task Test```
+* Test the script with Script Analyzer only  
+    ```.\build.ps1 -Task Analyze```
+* Deploy the script via PSDeploy  
+    ```.\build.ps1 -Task Deploy```
+{% endhighlight %}
+
+## Repository Overview
+Now that we've created all the necessary objects in our repository, it should look similar to this:
+
+![](/images/placeholder.gif)
+
+Now we're going to test out the various operations we can perform with ```build.ps1```. Because we've haven't wired up this repository to a true 
+build server like [TFS](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) or [Jenkins](https://jenkins.io/), we're going to simulate
+that by manually executing our ```build.ps1``` script. In a true Release Pipeline using Continous Integration, your build server would be responsible
+for executing the approprate build task when you check in your code into your control system.
+
+Looking at our ```psakeBuild.ps1``` script above. We've defined the following tasks:
+
+* Default
+* Analyze
+* Test
+* Deploy
+
+### Analyze
+Let's manually run the ```Analyze``` task that will execute Script Analyzer.
+![](/images/placeholder.gif)
+
+### Test
+Now let's manually run the ```Test``` task that will invoke our Pester tests.
+![](/images/placeholder.gif)
+
+### Default
+Our ```Default``` task has dependencies on the ```Analyze``` and ```Test``` tasks completing successfuly. Let's kick off the default task to make
+sure that happens.
+![](/images/placeholder.gif)
+
+### Deploy
+The ```Deploy``` task also has dependecies on the ```Analyze``` and ```Test``` tasks completing before any code in the task in executed. This ensures
+that only code that has passed our quality checks (such as they are) can be deployed. Let's run our ```Deploy``` task and make sure that
+ServerDiscovery.ps1 gets tested and our PSDeploy script is executed.
+![](/images/placeholder.gif)
+
+## Wrap up
