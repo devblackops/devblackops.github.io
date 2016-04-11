@@ -18,10 +18,12 @@ layout: default
       <!-- iterate through all the posts on the site --> 
       {% for post in site.posts %} 
         <!-- list only those which contain the current tag --> 
-        {% if post.tags contains tagitem[0] %} 
+        {% if post.tags contains tagitem[0] %}
+          {% unless post.draft %}  
             <li>
               <a href="{{ post.url }}">{{ post.title }}</a>
             </li>
+          {% endunless %}
         {% endif %}
       {% endfor %}
     </ul>

@@ -6,8 +6,13 @@ body {
   /*background-color: ghostwhite;*/
 }
 
-a:hover {
+a {
+  text-decoration: none;
   color: #23527c;
+}
+
+a:hover {
+  color: #337AB7;
   text-decoration: none;
 }
 
@@ -53,6 +58,13 @@ pre.highlight code,
 
 .btn {
   border-radius: 5px;
+  border: 1px solid #23527c;
+  color: #23527c;
+}
+
+.btn:hover, .navigation__item a:hover {
+    color: #337ab7;
+    border-color: #337ab7;
 }
 
 .btn,
@@ -375,6 +387,16 @@ a:focus {
      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
      box-shadow: 0 1px 1px rgba(0,0,0,0.05)
  }
+ 
+#markdown-toc {
+  font-size: 0.9em;
+  display: inline-block;
+  background: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  padding: 0.5em 1em 0.5em 2em;
+  margin: 0;
+}
 
 /*
  .panel-heading {
