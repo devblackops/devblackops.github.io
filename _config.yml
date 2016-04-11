@@ -1,8 +1,6 @@
 # Site settings
 title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
-#url: 'https://devblackops.github.io/'
-#baseurl: 'https://devblackops.github.io/'
 url: 'https://devblackops.io/'
 baseurl: 'https://devblackops.io/'
 #url: ''
