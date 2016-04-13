@@ -14,6 +14,9 @@ the new person on the team as a cruel form of initiation. ```It doesn't have to 
 how you can utilize a few awesome technologies to produce fully automated VMware templates and deploy those
 templates into your envionrment. 
 
+* TOC
+{:toc}
+
 ### Tools
 * [Chocolatey](https://chocolatey.org/) - Package management for Windows.
 * [Packer](https://packer.io) - Automates the creation of machine images.
@@ -46,33 +49,38 @@ during it's post-processor phase. These temporary files will be automatically cl
 [Github issue regarding Packer temp directory usage](https://github.com/mitchellh/packer/issues/1618)
 
 ### Build Server Software
-Install the following software on the build server with Chocolatey. Feel free to use other installation methods.
+Install the following software on the build server with Chocolatey. Feel free to use other installation methods if you like.
 
-1. Chocolatey, Packer, psake, and curl
+#### Chocolatey, Packer, psake, and curl
 {% highlight powershell %}
-if(-not $env:ChocolateyInstall -or -not (Test-Path "$env:ChocolateyInstall")){
+if(!($env:ChocolateyInstall) -or !(Test-Path "$env:ChocolateyInstall")){
     iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))    
-
+}
 if(!(Get-Command git -ErrorAction SilentlyContinue)) { cinst git -y }}
 if(!(Get-Command packer -ErrorAction SilentlyContinue)) { cinst packer -y }
 if(!(Test-Path $env:ChocolateyInstall\lib\Psake*)) { cinst psake -y }
 if(!(Test-Path -Path 'C:\ProgramData\chocolatey\lib\curl\tools\curl.exe')) { cinst curl -y }
 {% endhighlight %}
   
-* VMWare Workstation
+#### VMWare Workstation  
+
+Grab a copy of VMWare workstation and run the following command to install.
 
 {% highlight powershell %}
 .\VMware-workstation-full-12.1.0-3272444.exe /s /v /qn EULAS_AGREED=1 SERIALNUMBER='<YOUR SERIAL NUMEBR' AUTOSOFTWAREUPDATE=0
 {% endhighlight %}
 
-* PowerCLI
+#### PowerCLI
+Download the latest version of PowerCLI and run the following command to install. You can start
+[here](https://my.vmware.com/group/vmware/get-download?downloadGroup=PCLI630R1).
+
 {% highlight powershell %}
 .\VMware-PowerCLI-6.3.0-3639347.exe /b"C:\Windows\Temp" /VADDLOCAL=ALL /S /V"/qn ALLUSERS=1 REBOOT=ReallySuppress"
 {% endhighlight %}
 
-* ovftool
+#### ovftool
 
-Download ovftool from [https://www.vmware.com/support/developer/ovf]
+Download ovftool from [https://www.vmware.com/support/developer/ovf]()
 
 
 
