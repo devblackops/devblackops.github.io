@@ -99,6 +99,10 @@ Let's say we have a PowerShell script in use in our production environment. It d
 say our script is called ```ServerInfo.ps1```. This script will grab some system information from a computer via ```Get-CimInstance``` and return it
 back to us. We want to start using the Release Pipeline model for source control, development, testing, and ongoing releases of the script.
 
+<p style="text-align: center;">
+  <a target="_blank" class="btn small" href="https://github.com/devblackops/Release-Pipeline-Example">Release Pipeline Example on GitHub→</a>
+</p>
+
 ### Folder Setup
 1. Create a new folder called ```c:\ServerInfo.ps1```
 2. Create a new file in the folder called ```ServerInfo.ps1``` and place the following contents in it.
@@ -284,7 +288,7 @@ for that type of information.
 #### README.md
 {% highlight markdown %}
 ## About
-Author: Brandon Olin [[devblackops.io]()]
+Author: Brandon Olin [[devblackops.io](https://devblackops.io)]
 
 ## Overview
 An example of using the Release Pipeline Model with PowerShell-based tools. This repository hosts the ```ServerInfo.ps1``` 
@@ -315,7 +319,6 @@ A ```psake``` script has been created to manage the various operations related t
 ```powershell
 .\build.ps1 -Task Deploy
 ```
-
 {% endhighlight %}
 
 ## Repository Overview
@@ -403,7 +406,14 @@ code into production**.
 ## Wrap up
 As you further development your script and write Pester tests to **test** the script operates as you expect, you can now be confident that what you
 release into production will behave as you expect it to. Putting guard rails into your process in the form of automated tests and build procedures
-that require passing tests in order to proceed to the next stage will put you onto the happy path to releasing quality code at a faster pace. 
+that require passing tests in order to proceed to the next stage will put you onto the happy path to releasing quality code at a faster pace.
+
+The code in this post is also available on GitHub if you want to start with a working example for your projects. 
+
+<p style="text-align: center;">
+  <a target="_blank" class="btn small" href="https://github.com/devblackops/Release-Pipeline-Example">Release Pipeline Example on GitHub→</a>
+</p>
+
 
 There you have it. You now have a Release Pipeline implemented in pure PowerShell. I hope you found this post helpful and has given you some ideas on
 implementing this method in your environment.
