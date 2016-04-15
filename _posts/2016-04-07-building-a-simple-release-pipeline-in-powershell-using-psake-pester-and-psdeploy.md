@@ -8,6 +8,8 @@ Michael Greene from Microsoft using PowerShell based tools."
 comments: true
 categories: [DevOps]
 tags: [DevOps, Continuous Integration, Continuous Delivery, Release Pipeline]
+redirect_from:
+  - /building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/
 ---
 
 This post will outline an extremely simple yet effective **Release Pipeline** model you can use in your PowerShell projects. This process is
