@@ -60,4 +60,5 @@ kramdown:
 gems:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-redirect-from
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
