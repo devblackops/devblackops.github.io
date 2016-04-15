@@ -393,9 +393,7 @@ process {
 
 {% endhighlight %}
 
-Execute the ```Deploy``` task by running the following
-
-```.\build.ps1 -Task Deploy```
+Execute the ```Deploy``` task and see if we catch the error.
 
 ![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-failure.png)
 
