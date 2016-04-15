@@ -1,7 +1,6 @@
 ---
 title:  Building a Simple Release Pipeline in PowerShell Using psake, Pester, and PSDeploy
 date:   2016-04-06
-draft: true
 featured-image: pipeline.gif
 excerpt: "This post will outline an extremely simple yet effective Release Pipeline model you can use in your PowerShell projects. This process is
   essentially a distillation of the whitepaper written my Steven Muraski from Chef and
@@ -12,8 +11,8 @@ tags: [DevOps, Continuous Integration, Continuous Delivery, Release Pipeline]
 ---
 
 This post will outline an extremely simple yet effective **Release Pipeline** model you can use in your PowerShell projects. This process is
-essentially a distillation of the whitepaper written my [Steven Muraski](http://stevenmurawski.com/) from Chef and
-[Michael Greene](https://github.com/mgreenegit) from Microsoft using PowerShell based tools. I highly recommend you read the whitepaper which you can
+essentially a distillation of the whitepaper written by [Michael Greene](https://github.com/mgreenegit) from Microsoft and
+[Steven Muraski](http://stevenmurawski.com/) from Chef using PowerShell based tools. I highly recommend you read the whitepaper which you can
 grab at [http://aka.ms/thereleasepipelinemodel](http://aka.ms/thereleasepipelinemodel). The whitepaper gives an excellent overview of the Release
 Pipeline Model **(Source, Build, Test, and Release)** and how this simple and easy to understand model can be applied to IT Operations.
 
@@ -95,21 +94,52 @@ Install-Module -Name PSScriptAnalyzer
 Install-Module -Name PSDeploy
 {% endhighlight %}
 
-## Creating our Scripts
+## Creating our Script Folder
 Let's say we have a PowerShell script in use in our production environment. It doesn't really matter what the script does, but for this example, let's
 say our script is called ```ServerInfo.ps1```. This script will grab some system information from a computer via ```Get-CimInstance``` and return it
 back to us. We want to start using the Release Pipeline model for source control, development, testing, and ongoing releases of the script.
 
-### Create a git repository
-First things first. We need to get this script into source control. Let's create a new folder that will be our source control **repository** for the
-script and all associated tests and deployment configuration. This repository is the single source of truth about the script, how it is tested, how 
-it is deployed, and any related documentation.
-
+### Folder Setup
 1. Create a new folder called ```c:\ServerInfo.ps1```
-2. Create a new file in the folder called ```ServerInfo.ps1```
+2. Create a new file in the folder called ```ServerInfo.ps1``` and place the following contents in it.
+
+#### ServerInfo.ps1
+{% highlight powershell %}
+[cmdletbinding()]
+[OutputType([pscustomobject])]
+param(    
+    [parameter(mandatory)]
+    [string[]]$ComputerName,
+    
+    [PSCredential]
+    [System.Management.Automation.CredentialAttribute()]
+    $Credential
+)
+
+process {
+    foreach ($name in $ComputerName) {
+        $cimSession = New-CimSession -ComputerName $name -Credential $Credential
+        $compSys = Get-CimInstance -CimSession $cimSession -ClassName Win32_Computersystem
+        Remove-CimSession $cimSession
+        [pscustomobject]@{
+            ComputerName = $compSys.Name
+            PrimaryOwner = $compSys.PrimaryOwnerName
+            RAM = $compSys.TotalPhysicalMemory
+            Manufacturer = $compSys.Manufacturer
+            Model = $compSys.Model
+        }
+    }
+}
+{% endhighlight %}
+
+### Create a git repository
+We need to get this script into source control. Let's make our folder a source control **repository** for the script and all associated tests and 
+deployment configuration. This repository is the single source of truth about the script, how it is tested, how it is deployed, and any related
+documentation.
 
 This is what our folder looks like at this point.
-![](/images/placeholder.gif)
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/starting-folder.png)
 
 Now that we have git and posh-git installed, let make this folder a repository.
 {% highlight powershell %}
@@ -117,8 +147,9 @@ cd C:\ServerInfo
 git init
 {% endhighlight %}
 
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/git-init.png)
+
 Notice that our prompt has changed. This is posh-git showing us that this folder is now a git repository and we already have something to check in.
-![](/images/placeholder.gif)
 
 ### Create a Pester test script
 Create a file called ```ServerInfo.tests.ps1``` in the repository and save it with the following contents.
@@ -225,7 +256,7 @@ which you can find more about [here](https://github.com/RamblingCookieMonster/PS
 ```ServerInfo.ps1``` script to ```c:\temp```. Not very useful I know, but imagine if you wanted to deploy the script to 1000 machines. It's just a
 matter of passing an array of destination shares in the ```To``` section. PSDeploy will take care of deploying the code to all 1000 endpoints for you.
 
-#### ServerDiscovery.psdeploy.ps1
+#### ServerInfo.psdeploy.ps1
 {% highlight powershell %}
 Deploy 'Deploy ServerInfo script' {
     By Filesystem {
@@ -263,22 +294,34 @@ tasks for day to day operations and deployment of the script.
 ## Usage
 A ```psake``` script has been created to manage the various operations related to testing and deployment of ```ServerInfo.ps1```
 
-### Build Operations  
+### Build Operations
+
 * Test the script via Pester and Script Analyzer  
-    ```.\build.ps1```
+```powershell
+.\build.ps1
+```
+    
 * Test the script with Pester only  
-    ```.\build.ps1 -Task Test```
+```powershell
+.\build.ps1 -Task Test
+```
+    
 * Test the script with Script Analyzer only  
-    ```.\build.ps1 -Task Analyze```
+```powershell
+.\build.ps1 -Task Analyze
+```
+    
 * Deploy the script via PSDeploy  
-    ```.\build.ps1 -Task Deploy```
+```powershell
+.\build.ps1 -Task Deploy
+```
 
 {% endhighlight %}
 
 ## Repository Overview
 Now that we've created all the necessary objects in our repository, it should look similar to this:
 
-![](/images/placeholder.gif)
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/folder-populated.png)
 
 Now we're going to test out the various operations we can perform with ```build.ps1```. Because we've haven't wired up this repository to a true 
 build server like [TFS](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) or [Jenkins](https://jenkins.io/), we're going to simulate
@@ -294,24 +337,76 @@ Looking at our ```psakeBuild.ps1``` script above. We've defined the following ta
 
 ### Analyze
 Let's manually run the ```Analyze``` task that will execute Script Analyzer.
-![](/images/placeholder.gif)
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-analyze.png)
 
 ### Test
 Now let's manually run the ```Test``` task that will invoke our Pester tests.
-![](/images/placeholder.gif)
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-test.png)
 
 ### Default
 Our ```Default``` task has dependencies on the ```Analyze``` and ```Test``` tasks completing successfully. Let's kick off the default task to make
 sure that happens.
-![](/images/placeholder.gif)
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-default.png)
 
 ### Deploy
 The ```Deploy``` task also has dependencies on the ```Analyze``` and ```Test``` tasks completing before any code in the task in executed. This ensures
 that only code that has passed our quality checks (such as they are) can be deployed. Let's run our ```Deploy``` task and make sure that
-ServerInfo.ps1 gets tested and our PSDeploy script is executed.
-![](/images/placeholder.gif)
+ServerInfo.ps1 gets tested and our PSDeploy script is executed. I'm calling the build script with ```-Verbose``` so the PSDeploy output is shown.
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-deploy.png)
+
+## Testing Failures
+Our deploy worked on the first try! I don't know about you, but I rarely get anything right on the first try. Let's go back to our 
+```ServerInfo.ps1``` script and put some bad code in and re-run our build process. This error should be caught in our Pester or Script Analyzer tests
+and trigger a failing build.
+
+Put this code in ```ServerInfo.ps1```
+{% highlight powershell %}
+[cmdletbinding()]
+#[OutputType([pscustomobject])] ### <--- We've commented out the output type
+param(    
+    [parameter(mandatory)]
+    [string[]]$ComputerName,
+    
+    [PSCredential]
+    [System.Management.Automation.CredentialAttribute()]
+    $Credential
+)
+
+process {
+    foreach ($name in $ComputerName) {
+        $cimSession = New-CimSession -ComputerName $name -Credential $Credential
+        $compSys = Get-CimInstance -CimSession $cimSession -ClassName Win32_Computersystem
+        Remove-CimSession $cimSession
+        [pscustomobject]@{
+            ComputerName = $compSys.Name
+            PrimaryOwner = $compSys.PrimaryOwnerName
+            RAM = $compSys.TotalPhysicalMemory
+            Manufacturer = $compSys.Manufacturer
+            Model = $compSys.Model
+        }
+    }
+}
+
+{% endhighlight %}
+
+Execute the ```Deploy``` task by running the following
+
+```.\build.ps1 -Task Deploy```
+
+![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/build-failure.png)
+
+Notice that our ```Deploy``` task has failed on its' dependencies and will **NOT** execute the deploy task. **This just saved us from deploying bad
+code into production**.
 
 ## Wrap up
+As you further development your script and write Pester tests to **test** the script operates as you expect, you can now be confident that what you
+release into production will behave as you expect it to. Putting guard rails into your process in the form of automated tests and build procedures
+that require passing tests in order to proceed to the next stage will put you onto the happy path to releasing quality code at a faster pace. 
+
 There you have it. You now have a Release Pipeline implemented in pure PowerShell. I hope you found this post helpful and has given you some ideas on
 implementing this method in your environment.
 
