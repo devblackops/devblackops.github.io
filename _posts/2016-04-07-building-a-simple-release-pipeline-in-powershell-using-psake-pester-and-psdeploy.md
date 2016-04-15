@@ -256,7 +256,7 @@ lifecycle of the repository. **This in important as the primary way you interact
 the appropriate task name you would like to perform**.
 
 ### Create a PSDeploy script
-Your PSDeploy script is the way you distribute your script to the outside would once it has passed all relevant testing initiated from your psake
+Your PSDeploy script is the way you distribute your script to the outside world once it has passed all relevant testing initiated from your psake
 script. Create a new script called ```ServerInfo.psdeploy.ps1``` and copy the following contents into it. PSDeploy scripts use a simple DSL
 which you can find more about [here](https://github.com/RamblingCookieMonster/PSDeploy). The PSDeploy script below will just be copying our
 ```ServerInfo.ps1``` script to ```c:\temp```. Not very useful I know, but imagine if you wanted to deploy the script to 1000 machines. It's just a
