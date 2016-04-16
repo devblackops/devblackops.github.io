@@ -106,7 +106,7 @@ back to us. We want to start using the Release Pipeline model for source control
 </p>
 
 ### Folder Setup
-1. Create a new folder called ```c:\ServerInfo.ps1```
+1. Create a new folder called ```c:\ServerInfo```
 2. Create a new file in the folder called ```ServerInfo.ps1``` and place the following contents in it.
 
 #### ServerInfo.ps1
@@ -147,7 +147,7 @@ This is what our folder looks like at this point.
 
 ![](/images/posts/building-a-aimple-release-pipeline-in-powershell-using-psake-pester-and-psdeploy/starting-folder.png)
 
-Now that we have git and posh-git installed, let make this folder a repository.
+Now that we have git and posh-git installed, let's make this folder a repository.
 {% highlight powershell %}
 cd C:\ServerInfo
 git init
