@@ -12,7 +12,7 @@ As you develop your PowerShell modules, you may run into the issue where many of
 
 ### Module Configuration Repository
 
-I like to create a module configuration repository under the user profile directory using a .<modulename> naming convention. Below is an example of my PasswordState module repository under my user profile. In this folder is an options.json file that holds just a couple of common parameters that my PasswordState cmdlets will need.
+I like to create a module configuration repository under the user profile directory using a ```.modulename``` naming convention. Below is an example of my PasswordState module repository under my user profile. In this folder is an options.json file that holds just a couple of common parameters that my PasswordState cmdlets will need.
 
 ![](/images/posts/storing-powershell-module-default-values-in-your-profile/passwordstate_repo.png)
 
