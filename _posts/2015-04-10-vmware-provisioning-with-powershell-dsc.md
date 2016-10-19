@@ -564,6 +564,6 @@ DscResourcesToExport = 'cVMware'
 
 ### Summary
 
-I hope this gave you a good example of the power of DSC and how it can be used to configure your VMware environment. This project is at the very earliest stages and all ideas are welcome. If you would like to contribute to this project, you can find it on GitHub [here](https://github.com/brandolomite/POSHOrigin_vSphere).
+I hope this gave you a good example of the power of DSC and how it can be used to configure your VMware environment. This project is at the very earliest stages and all ideas are welcome. If you would like to contribute to this project, you can find it on GitHub [here](https://github.com/devblackops/POSHOrigin_vSphere).
 
 Cheers
