@@ -2,15 +2,19 @@
 title:  VMware Provisioning with PowerShell DSC
 date:   2015-04-10
 featured-image: posts/vmware-provisioning-with-powershell-dsc/vmware_plus_powershell.png
-excerpt: I've written about the idea of [VMware Provisioning with PowerShell DSC before and now I want to show how you can accomplish this using a working example. Below is an admittedly basic but functional custom DSC module to deploy VMs using VMware's PowerCLI.
+excerpt: I've written about the idea of [VMware Provisioning with PowerShell DSC before and now I want to show how you can accomplish this using a working example.
+  Below is an admittedly basic but functional custom DSC module to deploy VMs using VMware's PowerCLI.
 comments: true
 categories: [DevOps, DSC, PowerShell, VMware]
 tags: [DevOps, DSC, PowerShell, VMware]
 ---
 
->UPDATE - I've started a series of posts about POSHOrigin. A PowerShell module and DSC resource that takes this to the next level. Check it out here.
+>UPDATE - I've started a series of posts about POSHOrigin.
+A PowerShell module and DSC resource that takes this to the next level.
+Check it out [here](http://devblackops.io/poshorigin-part-1-summary/){:target="_blank"}.
 
-I've written about the idea of [VMware Provisioning with PowerShell DSC](http://devblackops.io/vmware-provisioning-with-dsc/) before and now I want to show how you can accomplish this using a working example. Below is an admittedly basic but functional custom DSC module to deploy VMs using VMware's [PowerCLI](https://www.vmware.com/support/developer/PowerCLI/). I plan on continuing to add features to this DSC module that enhance VM provisioning and configuration, adding some helper cmdlets for working with DSC, as well as create additional custom DSC resources for the following:
+I've written about the idea of [VMware Provisioning with PowerShell DSC](http://devblackops.io/vmware-provisioning-with-dsc/) before and now I want to show how you can accomplish this using a working example.
+Below is an admittedly basic but functional custom DSC module to deploy VMs using VMware's [PowerCLI](https://www.vmware.com/support/developer/PowerCLI/).I plan on continuing to add features to this DSC module that enhance VM provisioning and configuration, adding some helper cmdlets for working with DSC, as well as create additional custom DSC resources for the following:
 
 1. Virtual Datacenter creation
 2. Cluster creation
@@ -22,7 +26,7 @@ I've written about the idea of [VMware Provisioning with PowerShell DSC](http://
 
 ### Get It
 
-Download the module from [GitHub](https://github.com/brandolomite/POSHOrigin_vSphere). All comments and contributions are welcome.
+Download the module from [GitHub](https://github.com/devblackops/POSHOrigin_vSphere). All comments and contributions are welcome.
 
 ### Requirements
 
