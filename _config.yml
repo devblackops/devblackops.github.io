@@ -18,12 +18,15 @@ author:
   #facebook_username: nobody
   github_username:  devblackops
   linkedin_username:  brandonolin
+  youtube_channel: UCPAA3UOoho0ZDsXI8BWYrYw
 
 pages_list:
   Home: '/'
   About: '/about/'
   Archives: '/archives/'
   Projects: '/projects/'
+  Videos: 'https://www.youtube.com/channel/UCPAA3UOoho0ZDsXI8BWYrYw'
+  Slides: 'https://speakerdeck.com/devblackops'
 
 # Default layouts
 defaults:

@@ -74,6 +74,16 @@
               </li>
             {% endif %}
 
+            {% if site.author.youtube_channel %}
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.youtube.com/channel/{{ site.author.youtube_channel }}" title="{{ site.author.name }} on Youtube" target="_blank">
+                  <i class="icon icon-social-youtube"></i>
+                  <span class="label">Youtube</span>
+                </a>
+              </li>
+            {% endif %}
+
             {% if site.author.linkedin_username %}
               <!-- LinkedIn -->
               <li class="navigation__item">
@@ -96,7 +106,7 @@
 
             <!-- RSS -->
             <li class="navigation__item">
-              <a href="{{ "feed.xml" | prepend: site.baseurl }}" title="Subscribe" target="_blank">
+              <a href="{{ site.baseurl }}/feed.xml" title="Subscribe" target="_blank">
                 <i class="icon icon-rss"></i>
                 <span class="label">RSS</span>
               </a>

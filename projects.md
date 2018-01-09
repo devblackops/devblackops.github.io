@@ -7,7 +7,7 @@ permalink: /projects/
 
 <div class="main-post-list">
   <ol class="post-list">
-    {% for project in site.projects | sort: title %}
+    {% for project in site.projects %}
       <li>
 
         <!-- Thumbnail -->
