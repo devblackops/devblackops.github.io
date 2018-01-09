@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Projects I'm working on
+title: Projects I'm working on or involved with
 description: Some of the projects I'm working on
 permalink: /projects/
 ---
 
 <div class="main-post-list">
   <ol class="post-list">
-    {% for project in site.projects %}
+    {% for project in site.projects | sort: title %}
       <li>
 
         <!-- Thumbnail -->
