@@ -2,9 +2,9 @@
 title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
 url: 'https://devblackops.io/'
-baseurl: 'https://devblackops.io/'
+baseurl: 'https://devblackops.io'
 #url: ''
-#baseurl: '/'
+#baseurl: ''
 enforce_ssl: devblackops.io
 google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
@@ -15,7 +15,7 @@ author:
   name: 'Brandon olin'
   email: brandon@devblackops.io
   twitter_username: devblackops
-  #facebook_username: joshgerdes
+  #facebook_username: nobody
   github_username:  devblackops
   linkedin_username:  brandonolin
 

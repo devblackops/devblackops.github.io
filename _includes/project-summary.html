@@ -4,7 +4,7 @@
 		{% for project in site.projects %}
   		<li>
   			<figure>
-          <a href="{{ site.baseurl }}{{ project.url | remove_first: '/' }}" title="{{ project.title }}">
+          <a href="{{ site.baseurl }}/{{ project.url }}" title="{{ project.title }}">
             {% if project.thumbnail %}
               <img class="post-image-thumbnail" src=
                 {% if project.thumbnail contains 'http:' %}
