@@ -1,7 +1,7 @@
 ---
 title: "PowerShell Strict Mode"
 date: 2018-05-23
-featured-image: powershell-logo2
+featured-image: powershell-logo2.png
 excerpt: "This post will show you how to test your network latency to different Azure regions so you can make the best decision possible when choosing where to deploy your resources."
 comments: true
 categories: [PowerShell]
