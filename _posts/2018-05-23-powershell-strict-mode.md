@@ -2,7 +2,7 @@
 title: "PowerShell Strict Mode"
 date: 2018-05-23
 featured-image: powershell-logo2.png
-excerpt: "This post will show you how to test your network latency to different Azure regions so you can make the best decision possible when choosing where to deploy your resources."
+excerpt: "With the Set-StrictMode cmdlet you can turn PowerShell’s Strict Mode on, which ensures that you follow best practices in your script. I'll show you the differences between Strict Mode versions 1.0 and 2.0."
 comments: true
 categories: [PowerShell]
 tags: [PowerShell]
