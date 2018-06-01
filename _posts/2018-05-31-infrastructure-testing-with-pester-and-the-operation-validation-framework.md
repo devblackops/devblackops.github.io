@@ -4,7 +4,7 @@ date: 2018-05-31
 featured-image: testing.jpg
 excerpt: "If you've been using PowerShell for any length of time in the past few years you have undoubtedly heard of Pester.
 If not, then you're probably living in a strange parallel universe where the Zune is still a thing.
-In any case, Pester is **THE** testing framework for PowerShell and is a must-have tool in your Infrastructure Developer toolbox."
+In any case, Pester is THE testing framework for PowerShell and is a must-have tool in your Infrastructure Developer toolbox."
 comments: true
 categories: [Testing, PowerShell]
 tags: [PowerShell, Infrastructure, Testing, Pester, OVF, Operation Validation]
