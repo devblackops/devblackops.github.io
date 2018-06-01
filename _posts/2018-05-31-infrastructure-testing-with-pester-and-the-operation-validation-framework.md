@@ -133,12 +133,20 @@ You’d probably run these every few hours or once a day.
 As an example, let’s say we have a PowerShell module with the structure above.
 This module includes the Pester tests below.
 Notice that both Pester test scripts have parameters that define some default values.
-Pester has this nifty feature where you can invoke a test script and inject in parameters to it.
+Pester has this nifty feature where you can invoke a test script and inject parameters into it.
 This allows you to provide some sane defaults for your tests yet allow the user to override them if they need to.
 OVF also supports this feature.
 This means that you can write **generic** OVF modules designed to test a certain product or OS feature and publish them to the PowerShell Gallery!
 Users can then download and execute these, overriding the default parameters if necessary to fit their environment.
 We’d have common infrastructure tests that the whole community could use!
+
+Myself and others have already published a few OVF modules to the [PowerShell Gallery](https://www.powershellgallery.com/items?q=ovf&x=0&y=0).
+Check out these simple OVF modules to test Windows Server, Active Directory, SharePoint, and Citrix ShareFile.
+
+- [OVF.Windows.Server](https://www.powershellgallery.com/packages/OVF.Windows.Server/)
+- [OVF.Active.Directory](https://www.powershellgallery.com/packages/OVF.Active.Directory/)
+- [OVF.SharePoint](https://www.powershellgallery.com/packages/OVF.SharePoint/)
+- [OVF.ShareFile](https://www.powershellgallery.com/packages/OVF.ShareFile)
 
 ![Do you know what this means?](/images/posts/infrastructure-testing-with-pester-and-the-operation-validation-framework/1z122s.jpg)
 
