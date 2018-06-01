@@ -20,7 +20,7 @@ If you write production code to automate your infrastructure, then you are not a
 
 The fact that we write PowerShell code that defines or runs IT infrastructure is not any different than a web developer using CSS, JavaScript, and HTML, or a full-stack ninja rockstar slinging micro-services written in Go on [Kubernetes](https://kubernetes.io/).
 
-> Everything envolves working with code therefore **everyone** is a developer.
+> Everything involves working with code therefore **everyone** is a developer.
 <br/><br/>- Sun Tzu
 
 Your traditional developer working with C# or Java tests their code.
@@ -79,8 +79,6 @@ describe 'Get-Answer' {
     }
 }
 ```
-
-
 
 The test above is validating the output of our `Get-Answer` function. Now take a look at an infrastructure test:
 
