@@ -3,9 +3,6 @@ layout: default
 ---
 <article class="post-container post-container--single">
 
-
-
-
   <header class="post-header">
 
     <div class="row">
@@ -57,6 +54,8 @@ layout: default
       {{ content }}
     </section>
   {% endif %}
+
+  {% include article-ad-bottom.html %}
 
   <!-- Social icons -->
   {% if page.share != false %}{% include social-share.html %}{% endif %}

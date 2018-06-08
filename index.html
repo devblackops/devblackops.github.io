@@ -13,11 +13,14 @@ layout: default
           {% else %}
             {% include post-summary.html %}
           {% endif %}
-        
+
           <hr class="post-list__divider">
         </li>
       {% endunless %}
     {% endfor %}
+
+    {% include feed-ad.html %}
+
   </ol>
 
   {% if paginator.previous_page or paginator.next_page %}
