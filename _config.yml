@@ -60,8 +60,9 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems:
+plugins:
   - jekyll-paginate
+  - jekyll-feed
   - jekyll-gist
   - jekyll-redirect-from
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
