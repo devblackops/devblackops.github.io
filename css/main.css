@@ -243,6 +243,11 @@ pre.highlight code,
   max-width: 100%;
 }
 
+.planet-powershell {
+  margin-top: 2em;
+  width: 225px;
+  height: 94px;
+}
 
 
 p>img {
@@ -387,7 +392,7 @@ a:focus {
      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
      box-shadow: 0 1px 1px rgba(0,0,0,0.05)
  }
- 
+
 #markdown-toc {
   font-size: 0.9em;
   display: inline-block;
