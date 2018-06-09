@@ -10,7 +10,7 @@ tags: [PowerShell, Pipeline, Files]
 
 The correct way to write a PowerShell function that works with file paths from the pipeline requires some effort, but it will make your PowerShell scripts work more reliably.
 
-{% include article-ad-inline.html %}
+<!-- {% include article-ad-inline.html %} -->
 
 Suppose we want to write a function that counts the number of lines in a text file, and we want to pipe those files to our function. Cmdlets like Get-Item, Get-ChildItem, and Get-Content all accept input from the pipeline, but how do we write a function that behaves similarly to the core cmdlets? Let's see how we would go about creating our own function that supports this workflow.
 
