@@ -24,6 +24,7 @@ pages_list:
   Home: '/'
   About: '/about/'
   Archives: '/archives/'
+  Podcasts: '/podcasts/'
   Projects: '/projects/'
   Training: '/training/'
   Videos: 'https://www.youtube.com/channel/UCPAA3UOoho0ZDsXI8BWYrYw'
@@ -51,6 +52,8 @@ defaults:
       layout: 'training-summary'
 
 collections:
+  podcasts:
+    output: true
   projects:
     output: true
   training:
