@@ -1,0 +1,26 @@
+ <section class="grid-wrap">
+	<ul class="grid">
+		<li class="grid-sizer"></li>
+		{% for item in site.training %}
+  		<li>
+  			<figure>
+          <a href="{{ site.baseurl }}/{{ item.url }}" title="{{ item.title }}">
+            {% if item.thumbnail %}
+              <img class="post-image-thumbnail" src=
+                {% if item.thumbnail contains 'http:' %}
+                  "{{ item.thumbnail }}"
+                {% else %}
+                  "{{ site.url }}/images/{{ item.thumbnail }}"
+                {% endif %}
+                alt="{{ item.title }} image">
+            {% endif %}
+    				<figcaption>
+    					<h3>{{ item.title }}</h3>
+    					<p>{{ item.short-description }}</p>
+    				</figcaption>
+          </a>
+  			</figure>
+  		</li>
+		{% endfor %}
+	</ul>
+</section>

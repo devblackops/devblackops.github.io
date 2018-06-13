@@ -25,6 +25,7 @@ pages_list:
   About: '/about/'
   Archives: '/archives/'
   Projects: '/projects/'
+  Training: '/training/'
   Videos: 'https://www.youtube.com/channel/UCPAA3UOoho0ZDsXI8BWYrYw'
   Slides: 'https://speakerdeck.com/devblackops'
 
@@ -42,9 +43,17 @@ defaults:
       type: 'projects'
     values:
       layout: 'project-summary'
+  -
+    scope:
+      path: ''
+      type: 'training'
+    values:
+      layout: 'training-summary'
 
 collections:
   projects:
+    output: true
+  training:
     output: true
 
 # Build settings
