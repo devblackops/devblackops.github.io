@@ -12,7 +12,7 @@ permalink: /projects/
 
         <!-- Thumbnail -->
         {% if project.thumbnail %}
-          <a href="{{ project.project-link }}" title="{{ project.title }}">
+          <a target="_blank" href="{{ project.project-link }}" title="{{ project.title }}">
             <img class="project-thumbnail" style="max-width:150px; margin-right: 20px;" src="{{ site.url }}/images/{{ project.thumbnail }}"
             alt="{{ project.title }} thumbnail">
           </a>
@@ -21,7 +21,7 @@ permalink: /projects/
         <!-- Excerpt -->
         <p class="excerpt">
           <h1 class="post-list__post-title post-title">
-            <a href="{{ project.project-link }}" title="{{ project.title }}">{{ project.title }}</a>
+            <a target="_blank" href="{{ project.project-link }}" title="{{ project.title }}">{{ project.title }}</a>
           </h1>
           {{ project.short-description | remove: '<p>' | remove: '</p>' }}
         </p>
@@ -45,8 +45,8 @@ permalink: /projects/
 <!-- <div class="row">
   {% for project in site.projects %}
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-      <div class="thumbnail">      
-        <div class="thumbnail-wrapper text-center">        
+      <div class="thumbnail">
+        <div class="thumbnail-wrapper text-center">
           <img src="{{ site.url }}/images/{{ project.thumbnail }}" alt="...">
         </div>
         <div class="caption">
