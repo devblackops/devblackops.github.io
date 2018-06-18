@@ -24,12 +24,30 @@
         <div class="navigation-wrapper">
 
           <!-- Navigation -->
-          <ul class="menu-navigation">
+          <!-- <ul class="menu-navigation">
             {% for page in site.pages_list %}
             <li>
               <small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
             </li>
             {% endfor %}
+            <li>
+              <small><a href="/tags/">Tags</a>&nbsp|&nbsp<a href="/categories/">Categories</a></small>
+            </li>
+          </ul> -->
+
+          <ul class="menu-navigation">
+            <li>
+              <small><a href="/">Home</a>&nbsp|&nbsp<a href="/about/">About</a></small>
+            </li>
+            <li>
+              <small><a href="/projects">Projects</a>&nbsp|&nbsp<a href="/training/">Training</a></small>
+            </li>
+            <li>
+              <small><a href="/archives">Archives</a>&nbsp|&nbsp<a href="/podcasts/">Podcasts</a></small>
+            </li>
+            <li>
+              <small><a target="_blank" href="https://www.youtube.com/channel/UCPAA3UOoho0ZDsXI8BWYrYw">Videos</a>&nbsp|&nbsp<a target="_blank" href="https://speakerdeck.com/devblackops">Slides</a></small>
+            </li>
             <li>
               <small><a href="/tags/">Tags</a>&nbsp|&nbsp<a href="/categories/">Categories</a></small>
             </li>
@@ -115,15 +133,29 @@
             </ul>
           </nav>
 
-          <!-- Patreon -->
-          <a href="https://www.patreon.com/bePatron?u=10352866&redirect_uri=https%3A%2F%2Fdevblackops.io" target="_blank" title="Become a Patron">
-            <img style="margin-top: 2em" src="{{ site.baseurl }}/images/become_a_patron_button.png" alt="Become a Patron">
-          </a>
+          <ul class="menu-navigation">
+            <!-- ChatOps the Easy Way -->
+            <li>
+              <a href="https://leanpub.com/chatops-the-easy-way" target="_blank" title="ChatOps the Easy Way book">
+                <img style="margin-top: 2em; width: 125px;" src="{{ site.baseurl }}/images/chatops-the-easy-way-cover.png" alt="ChatOps the Easy Way">
+              </a>
+            </li>
 
-          <!-- Planet PowerShell image -->
-          <a href="https://www.planetpowershell.com/" target="_blank" title="Planet PowerShell">
-              <img class="planet-powershell" src="{{ site.baseurl }}/images/planetpowershell-featured-badge.png" alt="Planet PowerShell">
-          </a>
+            <!-- Patreon -->
+            <li>
+              <a href="https://www.patreon.com/bePatron?u=10352866&redirect_uri=https%3A%2F%2Fdevblackops.io" target="_blank" title="Become a Patron">
+                <img style="margin-top: 2em" src="{{ site.baseurl }}/images/become_a_patron_button.png" alt="Become a Patron">
+              </a>
+            </li>
+
+            <!-- Planet PowerShell image -->
+            <li>
+              <a href="https://www.planetpowershell.com/" target="_blank" title="Planet PowerShell">
+                  <img class="planet-powershell" src="{{ site.baseurl }}/images/planetpowershell-featured-badge.png" alt="Planet PowerShell">
+              </a>
+            </li>
+
+          </ul>
 
           {% include footer.html %}
 
