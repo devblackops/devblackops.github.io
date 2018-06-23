@@ -36,9 +36,8 @@ layout: default
             <p class="excerpt">{{ page.excerpt | remove: '<p>' | remove: '</p>' }}</p>
           </div>
         {% endif %}
-
-
     </div>
+
     <div class="post-meta">
       <time datetime="{{ page.date | date: "%-d %b %Y" }}" class="post-meta__date date">Dreamed up on <span>{{ page.date | date: "%-d %b %Y" }}</span></time>
        <!-- &#8226; -->
@@ -53,7 +52,15 @@ layout: default
     <section class="post">
       {{ content }}
 
-      {% include patreon.html %}
+      <div class="row">
+
+              {% include patreon.html %}
+
+
+              {% include chatops-the-easy-way-insert.html %}
+
+      </div>
+
 
       {% include mailchimp-signup-form.html %}
     </section>
