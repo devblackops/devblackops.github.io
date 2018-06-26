@@ -1,7 +1,7 @@
 ---
 title: "The Operation Validation Framework: Test your infrastructure using Pester"
 date: 2018-06-25
-featured-image: azure-function-powershell.png
+featured-image: testing.jpg
 excerpt: "Knowing if your IT infrastructure is operating as it should is a fundamental task for any IT administrator. There are a plethora of tools and products available in the market to accomplish this task. I want to talk about another option that is free, simple, and uses PowerShell and Pester to perform the heavy lifting. This simple module is called the Operation Validation Framework."
 comments: true
 categories: [PowerShell]
