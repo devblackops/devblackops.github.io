@@ -2,7 +2,7 @@
 title: "The PowerShell Conference Book"
 date: 2018-07-09
 featured-image: powershell-conference-book.jpg
-excerpt: "ON Friday, July 6th, The PowerShell Conference Book as made available for purchase on Leanpub. This "conference in a book" includes chapters from over 30 PowerShell experts and all royalties are being donated to the OnRamp Scholarship program run by The DevOps Collective."
+excerpt: "On Friday, July 6th, The PowerShell Conference Book as made available for purchase on Leanpub. This "conference in a book" includes chapters from over 30 PowerShell experts and all royalties are being donated to the OnRamp Scholarship program run by The DevOps Collective."
 comments: true
 categories: [PowerShell]
 tags: [PowerShell]
