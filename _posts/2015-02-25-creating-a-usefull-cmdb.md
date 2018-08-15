@@ -4,6 +4,7 @@ date:   2015-02-25
 categories: [CMDB]
 featured-image: posts/creating-a-usefull-cmdb/road.jpg
 comments: true
+hide_from_feed: true
 tags: [CMDB]
 ---
 

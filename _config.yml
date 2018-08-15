@@ -38,6 +38,7 @@ defaults:
       type: 'posts'
     values:
         layout: 'post'
+        hide_from_feed: false
   -
     scope:
       path: ''

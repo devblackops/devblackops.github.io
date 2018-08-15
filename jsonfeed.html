@@ -1,0 +1,31 @@
+---
+layout: null
+permalink: /feed.json
+---
+
+{
+    "posts": [
+        {% for post in site.posts %}
+        {% if post.hide_from_feed != true %}
+        {% if forloop.first != true %},{% endif %}
+        {
+        "title": "{{ post.title }}",
+        "url": "{{ site.baseurl }}/{{ post.url | remove_first: '/' }}",
+        "date": "{{ post.date }}",
+        "tags": [
+            {% for tag in post.tags %}
+            {% if forloop.first != true %},{% endif %}
+            "{{ tag }}"
+            {% endfor %}
+        ],
+        "categories": [
+            {% for category in post.categories %}
+            {% if forloop.first != true %},{% endif %}
+            "{{ category }}"
+            {% endfor %}
+        ]
+        }
+        {% endif %}
+        {% endfor %}
+    ]
+}
