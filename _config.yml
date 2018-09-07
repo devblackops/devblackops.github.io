@@ -1,10 +1,10 @@
 # Site settings
 title: DevBlackOps
 description: Thoughts about DevOps and automation from a Windows guy
-#url: 'https://devblackops.io/'
-#baseurl: 'https://devblackops.io'
-url: ''
-baseurl: ''
+url: 'https://devblackops.io/'
+baseurl: 'https://devblackops.io'
+#url: ''
+#baseurl: ''
 enforce_ssl: devblackops.io
 google_analytics: 'UA-54364644-2'
 disqus_shortname: devblackops
