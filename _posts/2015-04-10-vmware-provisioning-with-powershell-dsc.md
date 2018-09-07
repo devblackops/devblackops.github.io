@@ -41,12 +41,12 @@ Below is an example DSC configuration for defining two VMs to be deployed from a
 >Please note that this is storing vCenter credentials in **PLAIN TEXT** in the DSC configuration. **DO NOT DO THIS IN ANYTHING BUT A SANDBOX ENVIRONMENT**. For a good overview of setting up certificates with DSC please check [here](http://blogs.msdn.com/b/powershell/archive/2014/01/31/want-to-secure-credentials-in-windows-powershell-desired-state-configuration.aspx).
 
 {% highlight powershell linenos %}
-$provisioningServer = 'USH-D-DSC-CLI3'
+$provisioningServer = 'SERVER01'
 $vCenterCreds = Get-Credential -Message 'Enter vCenter credentials'
 
-$ConfigData = @{  
-    AllNodes = @(        
-        @{     
+$ConfigData = @{
+    AllNodes = @(
+        @{
             NodeName = "*"
             PSDscAllowPlainTextPassword = $true
         }
@@ -77,9 +77,9 @@ $ConfigData = @{
                     Cluster = 'Workload'
                     InitialDatastore = 'datastore01'
                 }
-            )            
+            )
         }
-    )  
+    )
 }
 
 enum Ensure {
@@ -107,7 +107,7 @@ Configuration TestVMDeploy {
                 Datacenter = $_.Datacenter
                 Cluster = $_.Cluster
                 InitialDatastore = $_.InitialDatastore
-                DiskSpec = $_.DiskSpec           
+                DiskSpec = $_.DiskSpec
             }
         }
     }
@@ -135,9 +135,9 @@ Here we will run the configuration again. This time it will find the two VMs but
 Let's change the memory requirements for the two VMs. We only need to change the vRAM parameter in the configuration data and rerun the configuration.
 
 {% highlight powershell linenos %}
-$ConfigData = @{  
-    AllNodes = @(        
-        @{     
+$ConfigData = @{
+    AllNodes = @(
+        @{
             NodeName = "*"
             PSDscAllowPlainTextPassword = $true
         }
@@ -168,9 +168,9 @@ $ConfigData = @{
                     Cluster = 'Workload'
                     InitialDatastore = 'datastore01'
                 }
-            )            
+            )
         }
-    )  
+    )
 }
 {% endhighlight %}
 
@@ -348,7 +348,7 @@ class cVMwareVM {
                 Write-Verbose -Message "VM: $($this.VMName) was found"
             } else {
                 Write-Verbose -Message "VM: $($this.VMName) was not found"
-            }                       
+            }
             if ($this.Ensure -eq [Ensure]::Present) {
                 if ($vm -eq $null) { return $false }
             } else {
@@ -384,7 +384,7 @@ class cVMwareVM {
         }
     }
 
-    #region Helpers    
+    #region Helpers
     [bool]ConnectTovCenter() {
         if (!$this.vCenterConnected) {
             if ((Get-PSSnapin -Registered -Name 'VMware.VimAutomation.Core') -ne $null) {
@@ -409,10 +409,10 @@ class cVMwareVM {
                 return $true
             } catch {
                 throw "There was a problem connecting to vCenter: $($this.vCenter)"
-                $this.vCenterConnected = $false                
+                $this.vCenterConnected = $false
                 return $false
             }
-        }    
+        }
     }
 
     [bool]FindVM([string]$vmName) {
@@ -450,7 +450,7 @@ class cVMwareVM {
 
         $vm = $null
         # Do we have all the information we need to provision the VM?
-        if (($template -ne $null) -and ($datastore -ne $null) -and ($cluster -ne $null)) {   
+        if (($template -ne $null) -and ($datastore -ne $null) -and ($cluster -ne $null)) {
 
             Write-Verbose "vmname: $($this.VMName)"
 

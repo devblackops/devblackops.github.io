@@ -3,6 +3,7 @@ title:  "Import / Export PowerShell Credentials Module"
 date:   2015-03-18
 featured-image: powershell-logo.png
 comments: true
+hide_from_feed: true
 categories: [PowerShell]
 tags: [Credentials, PowerShell]
 ---
