@@ -93,8 +93,6 @@ To see the whole function including how to create short links using Bitly and se
 #### run.ps1
 
 ```powershell
-$blogFeedUrl = '<YOUR-BLOG-FEED-URL>'
-
 # I don't want these URLs tweeted out as they're not very relevant
 $excludedPosts = @()
 
@@ -103,7 +101,7 @@ $tracker = Get-Content $inBlob | ConvertFrom-Json
 Write-Output "Last tweeted: $($tracker.lastTweetedTime)"
 
 # Get random blog post from feed
-$blog           = Invoke-RestMethod -Uri $blogFeedUrl
+$blog           = Invoke-RestMethod -Uri $env:BLOG_FEED_URL
 $candidatePosts = $blog.posts.Where({$_.url -notin $excludedPosts})
 
 # Get a post from the list of available posts that we haven't already tweeted
