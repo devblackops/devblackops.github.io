@@ -33,7 +33,7 @@ For all the details about how this process works keep reading.
 ## Blog Post JSON feed
 
 I use the static site generator [Jekyll](https://jekyllrb.com/) for my blog and create a JSON file containing all previous blog posts any time I update the blog with new content.
-This JSON file can be found at [https://devblackops.io/feed.json](https://devblackops.io/feed.json), and you can see how I generate it [here](https://github.com/devblackops/devblackops.github.io/blob/master/feed.xml).
+This JSON file can be found at [https://devblackops.io/feed.json](https://devblackops.io/feed.json), and you can see how I generate it [here](https://github.com/devblackops/devblackops.github.io/blob/master/jsonfeed.html).
 
 A snippet of what this JSON looks like is below:
 
