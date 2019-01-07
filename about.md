@@ -5,7 +5,7 @@ permalink: /about/
 slug: about
 ---
 
-I am a Cloud Enterprise Architect with a major outdoor apparel company located in Portland, OR. I have over 18 years experience in IT with my primary areas of focus being Cloud, automation, Continuous Integration/Continuous Delivery, Infrastructure as Code, Configuration Management, and championing DevOps practices. I am a former US Marine (tip: never say ex-Marine) having served from 1999 to 2003, a husband to a wonderful wife, a father to two young boys, and a home brewer.
+I am a Cloud Architect living in Portland, OR and a Microsoft MVP in Cloud and Datacenter Management. I have 20 years experience in IT with my primary areas of focus being Azure, automation, Continuous Integration/Continuous Delivery, Infrastructure as Code, Configuration Management, and championing DevOps practices. I am a former US Marine (tip: never say ex-Marine) having served from 1999 to 2003, a husband to a wonderful wife, a father to two young boys, and a home brewer.
 
 “Improvise, Adapt, and Overcome” is a common mantra in the Marine Corps and one that I take to heart in everything I do. There is always a solution to a problem. You just have to have the will and drive to find it. This notion translates well into IT as we are constantly inundated with problems that at first glance may seem impossible to overcome. Not being deterred by these obstacles leaves you with a great sense of satisfaction when you finally find the answer that you were looking for.
 
