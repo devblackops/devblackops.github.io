@@ -40,9 +40,9 @@ We can use these variables to determine the correct path to use depending on the
 
 ```powershell
 if ($IsWindows) {
-    $path = '/mypath/to/foo.txt'
-} else {
     $path = "$env:SYSTEMDRIVE/mypath/to/foo.txt"
+} else {
+    $path = '/mypath/to/foo.txt'
 }
 ```
 
