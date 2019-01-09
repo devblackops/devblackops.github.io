@@ -2,13 +2,13 @@
 title: "Achievement Unlocked: Becoming a Microsoft MVP"
 date: 2019-01-06
 featured-image: MVP_Logo_Horizontal_Preferred_Cyan300_RGB_300ppi.png
-excerpt: "A few days ago I received a pretty awesome email in my inbox. I was becoming an Microsoft MVP!"
+excerpt: "A few days, ago I received a pretty awesome email in my inbox. I was becoming an Microsoft MVP!"
 comments: false
 categories: [PowerShell]
 tags: [PowerShell, MVP, Cloud, Azure]
 ---
 
-A few days ago I received a pretty awesome email in my inbox.
+A few days ago, I received a pretty awesome email in my inbox.
 I was becoming a [Microsoft MVP](https://mvp.microsoft.com/)!
 Specifically, an MVP in Cloud and Datacenter Management.
 
@@ -29,7 +29,7 @@ What I can tell you is there are no specific checklist of items to accomplish an
 
 For me, I do what I love, and that is to create interesting solutions to problems that I experience and share them with others, hoping that if they don't help solve someone else's problem, they at least inspire people to come up with their own solution (and hopefully share **that** with others as well).
 
-Becoming an MVP should not **the** goal.
+Becoming an MVP should not be **the** goal.
 It wasn't for me, and it should not be for you.
 Every MVP has a different story on how they became one, what their passions are, and their particular method of giving back.
 Many people will say it was unexpected, pretty much everyone says that is humbling, and **everyone** is extremely grateful for it.
