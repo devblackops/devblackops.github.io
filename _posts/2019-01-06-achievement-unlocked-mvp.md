@@ -27,7 +27,29 @@ Honestly, I don't know.
 Microsoft does not disclose their exact criteria for who gets the award and who doesn't, but they do provide some rough examples of [what it takes to become an MVP](https://mvp.microsoft.com/en-us/pages/what-it-takes-to-be-an-mvp).
 What I can tell you is there are no specific checklist of items to accomplish and no progress bar to monitor.
 
-For me, I do what I love, and that is to create interesting solutions to problems that I experience and share them with others, hoping that if they don't help solve someone else's problem, they at least inspire people to come up with their own solution (and hopefully share **that** with others as well).
+For me, I do what I love, and that is to create interesting solutions to problems that I experience and share them with others, hoping that if they don't help solve someone elses problem, they at least inspire people to come up with their own solution (and hopefully share **that** with others as well).
+
+> Update: Some people have asked about the various ways I engage with the community.
+Here are many of them:
+
+- [This blog](https://devblackops.io/)
+
+- My various [GitHub projects](https://github.com/devblackops). Many of which are published to the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=devblackops).
+
+- [Conference talks and user group presentations](https://www.youtube.com/playlist?list=PLZCZDr3XtVclEs990w1_jphVLZQ2K7IY6)
+
+- [Podcasts](https://devblackops.io/podcasts/)
+
+- [PSPowerHour](https://www.youtube.com/channel/UCtHKcGei3EjxBNYQCFZ3WNQ) lightning demos
+
+- Books
+
+  - [ChatOps the Easy Way](https://leanpub.com/chatops-the-easy-way)
+  - [The PowerShell Conference Book](https://leanpub.com/powershell-conference-book)
+
+- [TechSnips.io](https://techsnips.io/) screencasts
+
+- [4sysops](https://4sysops.com/) articles
 
 Becoming an MVP should not be **the** goal.
 It wasn't for me, and it should not be for you.
