@@ -1,7 +1,7 @@
 ---
 title: Using PoshBot Middleware for Rate-Limiting Notifications
 date: 2019-07-15
-featured-image: poshbot_logo_thumb_256
+featured-image: poshbot_logo_thumb_256.png
 excerpt: "Somone in the PowerShell Slack workspace asked if in PoshBot, he could notify users if users send over (x) amount of messages in (y) amount of time, and to suggest using a Slack thread. Here's how you can use PoshBot middleware to accomplish that."
 comments: false
 categories: [PoshBot, PowerShell ]
