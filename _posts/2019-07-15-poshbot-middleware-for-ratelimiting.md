@@ -28,12 +28,12 @@ You pick the appropriate stage depending on what your middleware is doing.
 
 | Name | Description |
 |------|-------------|
-| PreReceive   | Runs before PoshBot "receives" the message from the [backend](http://docs.poshbot.io/en/latest/tutorials/backend-development/overview/)
-| PostReceive  | Runs after the message is "received" from the backend, parsed, and matched with a registered bot command
-| PreExecute   | Runs before a command is executed
-| PostExecute  | Runs after a command has been executed but before responses are sent to the backend
-| PreResponse  | Runs before responses are sent to the backend
-| PostResponse | Runs after responses have been sent to the backend
+| PreReceive   | Runs before PoshBot "receives" the message from the [backend](http://docs.poshbot.io/en/latest/tutorials/backend-development/overview/) |
+| PostReceive  | Runs after the message is "received" from the backend, parsed, and matched with a registered bot command |
+| PreExecute   | Runs before a command is executed |
+| PostExecute  | Runs after a command has been executed but before responses are sent to the backend |
+| PreResponse  | Runs before responses are sent to the backend |
+| PostResponse | Runs after responses have been sent to the backend |
 
 ## Adding the Middleware Hook
 
