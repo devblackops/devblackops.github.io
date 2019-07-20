@@ -92,7 +92,7 @@ Our middleware needs to accept this object as the first parameter to the script.
 
 `$Bot` is the main PoshBot instance object.
 It is essentially a PowerShell class instance with a bunch of methods implementing all the bot logic.
-Our middleware is given access to this object so we can perform deep modification to PoshBot internals.
+Our middleware is given access to this object so we can perform deep modification of PoshBot internals.
 **Remember, with great power comes great responsibility**.
 
 ```powershell
@@ -116,7 +116,7 @@ We'll also pull out the calling user ID from the context object.
 We define our rate-limiting window in seconds but to allow greater precision for the actual measurements, we'll use milliseconds internally.
 
 We also need to be sure we DON'T measure messages already in a threaded conversation, or to count other messages PoshBot receives about updates to threaded conversations.
-If we don't exclude these, our rate-limiting will won't work correctly and we'll pester people to use threaded conversations when they already are and that would be...awkward.
+If we don't exclude these, our rate-limiting won't work correctly and we'll pester people to use threaded conversations when they already are and that would be...awkward.
 
 ```powershell
 $Bot.LogDebug('Beginning message ratelimit middleware')
