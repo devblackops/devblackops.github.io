@@ -16,7 +16,7 @@ Without them, our scripts would be just a tangled mess of `if` statements, `whil
 Functions allow us to package our PowerShell logic into discreet blocks we can call, pass parameters to affect how they work, and reuse them so we can follow DRY (Don't Repeat Yourself) principals.
 
 PowerShell has a lot of functionality tucked away into functions that sometimes are not known, ignored, or forgotten about entirely.
-Let's talk about some basic things we can add to functions that mprove our scripts and ultimately make us better tool makers.
+Let's talk about some basic things we can add to functions that improve our scripts and ultimately make us better tool makers.
 
 ## TOC
 
@@ -62,7 +62,7 @@ It's better to have a handful of small, discreet functions with quality unit tes
 It's almost a certainty that your PowerShell function is working with variables in some way.
 A good practice is to supply the function with all the **external** variables it may need to perform its task as parameters into the function.
 
-If our function only **reads** external variables, it's a good idea to add parameters to the function with the default value being the external variable.
+If our function only **reads** external variables, it's a good idea to add parameters to the function, with the default value being the external variable.
 
 A big reason to do this is it helps make writing unit tests for functions easier.
 We can confidently test a function in isolation, and verify the outputs if we supply all the required information directly into the function.
