@@ -1187,7 +1187,7 @@ hr {
 	width: 95%; }
 .post hr {
 	display: block;
-	width: 30%;
+	/* width: 30%; */
 	margin: 2em 0;
 	border-top: 1px solid #dddddd; }
 
@@ -1350,6 +1350,10 @@ hr {
 	.btn:hover, .navigation__item a:hover {
 		color: #b9301c;
 		border-color: #b9301c; }
+
+.navigation__item, .book a {
+	border: none !important;
+	opacity: 1;}
 
 .btn-secondary {
 	border-color: #5ba4e5;
