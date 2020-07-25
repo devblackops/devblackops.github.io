@@ -12,7 +12,7 @@ permalink: /training/
         <!-- Thumbnail -->
         {% if item.thumbnail %}
           <a href="{{ item.training-link }}" title="{{ item.title }}">
-            <img class="project-thumbnail" style="max-width:75px; margin-right: 20px;" src="{{ site.url }}/images/{{ item.thumbnail }}"
+            <img class="project-thumbnail" style="max-width:75px; margin-right: 20px;" src="{{ site.baseurl }}/images/{{ item.thumbnail }}"
             alt="{{ item.title }} thumbnail">
           </a>
         {% endif %}

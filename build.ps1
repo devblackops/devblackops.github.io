@@ -1,1 +1,1 @@
-docker build -t devblackops.io $PWD
+docker build -t devblackops.io:latest $PWD

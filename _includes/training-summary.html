@@ -10,7 +10,7 @@
                 {% if item.thumbnail contains 'http:' %}
                   "{{ item.thumbnail }}"
                 {% else %}
-                  "{{ site.url }}/images/{{ item.thumbnail }}"
+                  "{{ site.baseurl }}/images/{{ item.thumbnail }}"
                 {% endif %}
                 alt="{{ item.title }} image">
             {% endif %}

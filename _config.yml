@@ -66,6 +66,8 @@ paginate: 5
 permalink: /:title/
 markdown: kramdown
 highlighter: rouge
+future: false # Don't show future-dated posts
+show_drafts: false # Don't show drafts in production
 
 kramdown:
   # use Github Flavored Markdown

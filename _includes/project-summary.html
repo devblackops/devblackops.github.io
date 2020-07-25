@@ -10,7 +10,7 @@
                 {% if project.thumbnail contains 'http:' %}
                   "{{ project.thumbnail }}"
                 {% else %}
-                  "{{ site.url }}/images/{{ project.thumbnail }}"
+                  "{{ site.baseurl }}/images/{{ project.thumbnail }}"
                 {% endif %}
                 alt="{{ project.title }} project image">
             {% endif %}

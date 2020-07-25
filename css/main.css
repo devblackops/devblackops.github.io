@@ -8,12 +8,20 @@ body {
 
 a {
   text-decoration: none;
-  color: #23527c;
+  color: #557de8;
 }
 
 a:hover {
   color: #337AB7;
   text-decoration: none;
+}
+
+li>p {
+  margin-bottom: 1em;
+}
+
+.content-wrapper {
+  max-width: 900px;
 }
 
 blockquote {
@@ -45,7 +53,7 @@ pre.highlight,
 
 pre.highlight code,
 .highlight pre code {
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
 }
 
 .post pre {
@@ -89,6 +97,20 @@ pre.highlight code,
   padding: 5px 10px;
   text-shadow: none;
   white-space: nowrap;
+}
+
+.post-meta__date {
+  color: #666666
+}
+
+.post-meta span {
+  color: #666666
+}
+
+.reading-time span {
+  /* color: #777; */
+  background: #337AB7;
+  color: #ffffff;
 }
 
 .post-meta__tags {

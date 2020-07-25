@@ -12,14 +12,14 @@ layout: default
             <!-- <div class="image-wrap"> -->
 
               {% if page.type == 'quote' %}
-                <img class="quote-image" src="{{ site.url }}/images/quote2.png"
+                <img class="quote-image" src="{{ site.baseurl }}/images/quote2.png"
                   alt="{{ page.title }} feature image">
               {% else %}
                 <img class="post-featured-image" src=
                   {% if page.featured-image contains 'http' %}
                     "{{ page.featured-image }}"
                   {% else %}
-                    "{{ site.url }}/images/{{ page.featured-image }}"
+                    "{{ site.baseurl }}/images/{{ page.featured-image }}"
                   {% endif %}
                   alt="{{ page.title }} feature image">
               {% endif %}
@@ -42,12 +42,19 @@ layout: default
       <time datetime="{{ page.date | date: "%-d %b %Y" }}" class="post-meta__date date">Dreamed up on <span>{{ page.date | date: "%-d %b %Y" }}</span></time>
        <!-- &#8226; -->
        <span class="post-meta__tags">concerning {% for tag in page.tags %}<a href="{{ site.baseurl }}/tags/#{{ tag }}">{{ tag }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}</span>
+       <br><br>
+       {% include read-time.html content=content %}
     </div>
   </header>
 
   {% if page.type <> 'quote' %}
     <hr class="social__divider">
     <section class="post">
+
+      <div class="col-lg-8">
+        {% include newsletter-signup.html %}
+      </div>
+
       {{ content }}
 
       <hr class="social__divider">
@@ -56,13 +63,19 @@ layout: default
               {% include sponsor.html %}
 
               {% include book-inserts.html %}
+
+        <div style="text-align: center;">
+          {% include newsletter-signup.html %}
+        </div>
+
       </div>
+
+      {% include related-posts.html %}
     </section>
   {% endif %}
 
   <!-- Social icons -->
   {% if page.share != false %}{% include social-share.html %}{% endif %}
-
   <!-- Disqus comments -->
   {% if page.comments != false and site.disqus_shortname %}
     <section id="disqus_thread" class="disqus_wrapper"></section>

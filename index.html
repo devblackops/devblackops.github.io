@@ -6,7 +6,7 @@ layout: default
 
   <ol class="post-list">
     {% for post in paginator.posts %}
-      {% unless post.draft %}
+      <!-- {% unless post.draft %} -->
         <li>
           {% if post.type == 'quote' %}
             {% include quote-summary.html %}
@@ -16,7 +16,7 @@ layout: default
 
           <hr class="post-list__divider">
         </li>
-      {% endunless %}
+      <!-- {% endunless %} -->
     {% endfor %}
 
   </ol>

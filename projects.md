@@ -13,7 +13,7 @@ permalink: /projects/
         <!-- Thumbnail -->
         {% if project.thumbnail %}
           <a target="_blank" href="{{ project.project-link }}" title="{{ project.title }}">
-            <img class="project-thumbnail" style="max-width:150px; margin-right: 20px;" src="{{ site.url }}/images/{{ project.thumbnail }}"
+            <img class="project-thumbnail" style="max-width:150px; margin-right: 20px;" src="{{ site.baseurl }}/images/{{ project.thumbnail }}"
             alt="{{ project.title }} thumbnail">
           </a>
         {% endif %}
@@ -47,7 +47,7 @@ permalink: /projects/
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
       <div class="thumbnail">
         <div class="thumbnail-wrapper text-center">
-          <img src="{{ site.url }}/images/{{ project.thumbnail }}" alt="...">
+          <img src="{{ site.baseurl }}/images/{{ project.thumbnail }}" alt="...">
         </div>
         <div class="caption">
           <h3>{{ project.title }}</h3>

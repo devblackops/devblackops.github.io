@@ -6,7 +6,7 @@ permalink: /feed.json
 {
     "title": "{{ site.title}}",
     "description": "{{ site.description }}",
-    "url": "{{ site.url }}",
+    "url": "{{ site.baseurl }}",
     "date": "{{ site.time | date_to_rfc822 }}",
     "posts": [
         {% for post in site.posts %}
